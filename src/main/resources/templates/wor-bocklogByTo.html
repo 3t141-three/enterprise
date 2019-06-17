@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业人力资源系统</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+
+
+        })
+
+
+    </script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">企业人力资源系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <!--<ul class="layui-nav layui-layout-left">-->
+        <!--<li class="layui-nav-item"><a href="">控制台</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+        <!--<li class="layui-nav-item">-->
+        <!--<a href="javascript:;">其它系统</a  >-->
+        <!--<dl class="layui-nav-child">-->
+        <!--<dd><a href="">邮件管理</a></dd>-->
+        <!--<dd><a href="">消息管理</a></dd>-->
+        <!--<dd><a href="">授权管理</a></dd>-->
+        <!--</dl>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    贤心
+                </a>
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="">基本资料</a></dd>-->
+                <!--<dd><a href="">安全设置</a></dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item"><a href="">退出登录</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">我的工作台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="backLog">待办列表</a></dd>
+                        <dd><a href="">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">部门管理</a></dd>
+                        <dd><a href="javascript:;">用户管理</a></dd>
+                        <dd><a href="javascript:;">职位管理</a></dd>
+                        <dd><a href="javascript:;">职称管理</a></dd>
+                        <dd><a href="javascript:;">题库管理</a></dd>
+                        <dd><a href="javascript:;">公共属性管理</a></dd>
+                        <dd><a href="javascript:;">薪酬项目管理</a></dd>
+                        <dd><a href="javascript:;">用户设置</a></dd>
+                        <dd><a href="javascript:;">部门设置</a></dd>
+                        <dd><a href="javascript:;">用户设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">薪酬管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">薪酬标准管理</a></dd>
+                        <dd><a href="javascript:;">薪酬发放管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">人事管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">人事档案管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">招聘管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">职位发布管理</a></dd>
+                        <dd><a href="javascript:;">简历管理</a></dd>
+                        <dd><a href="javascript:;">面试管理</a></dd>
+                        <dd><a href="javascript:;">录用管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">培训管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">培训计划</a></dd>
+                        <dd><a href="javascript:;">培训复核</a></dd>
+                        <dd><a href="javascript:;">培训考核与反馈</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">数据分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">职员明细表</a></dd>
+                        <dd><a href="javascript:;">职员数据综合报表</a></dd>
+                        <dd><a href="javascript:;">职员异动情况统计分析</a></dd>
+                        <dd><a href="javascript:;">储备人才统计表</a></dd>
+                        <dd><a href="javascript:;">公司各体系结构分析</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--内容主体部分-->
+    <div class="layui-body">
+
+
+        <div id="u18" class="ax_文本" style="margin: 10px 0px 0px 70px;font-size: 20px">
+            <!-- Unnamed () -->
+            <div id="u19" class="text">
+                <p><span>我的工作平台</span><span>&nbsp;</span><span>&gt;&gt;</span><span>&nbsp;</span><span>待办列表</span><span> &gt;&gt; 处理</span>
+                </p>
+            </div>
+
+        </div>
+        <form id="u17">
+            <div style="display: inline;margin: 0px 200px 0px 50px;float: right;">
+                <img src="" style="width: 250px;height: 290px;">
+            </div>
+            <div>
+                <div style="display: inline;margin: 0px 50px 0px 50px;">
+                    <span id="u20">档案编码:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+
+                <div style="display: inline;margin: 0px 50px 0px 50px;">
+                    <span id="u22">变更类型:</span>
+                    <select id="u23" name="city" lay-verify="required">
+                        <option value="">--请选择--</option>
+                        <option value="0">北京</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">所属部门:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+                <div style="display: inline;margin: 0px 50px 0px 50px;">
+                    <span id="u22">档案状态:</span>
+                    <select id="u23" name="city" lay-verify="required">
+                        <option value="">--请选择--</option>
+                        <option value="0">北京</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">职位名称:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">职位编码:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+                <div style="display: inline;margin: 0px 50px 0px 50px;">
+                    &nbsp;&nbsp;<span id="u22">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</span>
+                    <select id="u23" name="city" lay-verify="required">
+                        <option value="">--请选择--</option>
+                        <option value="0">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">E&nbsp;M&nbsp;A&nbsp;I&nbsp;L:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">联系电话:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+            </div>
+            <br>
+            <div>
+
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>
+                    <input value="" style="size: 30px ; width: 700px;height: 30px;">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">身份证号:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">户口所在地:</span>
+                    <input id="u21" value="" style="size: 30px;width: 230px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">政治面貌:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">毕业院校:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业:</span>
+                    <input id="u21" value="" style="size: 30px;width: 230px">
+                </div>
+                <div style="display: inline;margin: 0px 50px 0px 50px;">
+                    <span id="u22">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</span>
+                    <select id="u23" name="city" lay-verify="required">
+                        <option value="">--请选择--</option>
+                        <option value="0">专科</option>
+                        <option value="1">本科</option>
+                        <option value="2">硕士</option>
+                        <option value="3">博士</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 0px 50px 0px 50px;">
+                    <span id="u22">薪酬标准:</span>
+                    <select id="u23" name="city" lay-verify="required">
+                        <option value="">--请选择--</option>
+                        <option value="0">专科</option>
+                        <option value="1">本科</option>
+                        <option value="2">硕士</option>
+                        <option value="3">博士</option>
+                    </select>
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">开&nbsp;&nbsp;户&nbsp;&nbsp;行:&nbsp;&nbsp;&nbsp;</span>
+                    <input id="u21" value="" style="size: 30px;width: 230px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">银行卡号:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">社保卡号:</span>
+                    <input id="u21" value="" style="size: 30px;">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">登&nbsp;&nbsp;记&nbsp;&nbsp;人:&nbsp;&nbsp;&nbsp;</span>
+                    <input id="u21" value="" style="size: 30px;width: 230px">
+                </div>
+                <div style="display: inline;margin: 10px 50px 0px 50px;">
+                    <span id="u20">建档时间:</span>
+                    <input id="u21" value="" style="size: 30px">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <div style="display: inline;margin: 10px 50px 0px 50px;">
+                        <span id="u20">个人履历:</span>
+                        <input value="" style="size: 30px;width: 1200px;height: 80px">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <div style="display: inline;margin: 10px 50px 0px 50px;">
+                        <span id="u20">家庭关系信息:</span>
+                        <input value="" style="size: 30px;width: 1160px;height: 80px">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <div style="display: inline;margin: 10px 50px 0px 50px;">
+                        <span id="u20">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:</span>
+                        <input value="" style="size: 30px;width: 1200px;height: 80px">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <div style="display: inline;margin: 10px 50px 0px 50px;">
+                        <span id="u20">简历附件:</span>
+                        <a>赵燕个人简历.doc</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <a href="#" id="u25" class="layui-btn">审核通过</a>
+                <a href="#" id="u25" class="layui-btn">驳回</a>
+                <a href="#" id="u25" class="layui-btn">返回</a>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+</div>
+<script src="layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+<script src="/static/build/layui.js"></script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+    });
+</script>
+<style>
+
+    #u17 {
+        margin: 20px 0px 0px 20px;
+    }
+
+    #u20, #u22, #u24 {
+        font-size: 20px;
+    }
+
+    #u21, #u23, #u25 {
+        width: 250px;
+        height: 30px;
+
+    }
+
+    #u25 {
+        margin: 30px 20px 0px 20px;
+        height: 35px;
+    }
+
+
+</style>
+
+</body>
+</html>
+</body>
+</html>
