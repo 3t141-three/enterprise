@@ -9,6 +9,7 @@ public class User {
   private String role;
   private String branch;
   private Integer phone;
+  private String portrait;
 
   public Integer getId() {
     return id;
@@ -64,5 +65,13 @@ public class User {
 
   public void setPhone(Integer phone) {
     this.phone = phone;
+  }
+
+  public String getPortrait() {
+    return portrait;
+  }
+
+  public void setPortrait(String portrait) {
+    this.portrait = portrait;
   }
 }

@@ -1,29 +1,29 @@
-package com.szxs.entity;
+package com.sample;
 
-
-import java.util.Date;
 
 public class Position {
 
-  private Integer id;
+  private long id;
   private String branch;
   private String recruit;
   private String positionName;
   private String positionCode;
   private String positionClassify;
   private String fegisterName;
-  private Date beginTime;
-  private Date finish;
+  private java.sql.Date beginTime;
+  private java.sql.Date finish;
   private String depict;
   private String ask;
 
-  public Integer getId() {
+
+  public long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(long id) {
     this.id = id;
   }
+
 
   public String getBranch() {
     return branch;
@@ -33,6 +33,7 @@ public class Position {
     this.branch = branch;
   }
 
+
   public String getRecruit() {
     return recruit;
   }
@@ -40,6 +41,7 @@ public class Position {
   public void setRecruit(String recruit) {
     this.recruit = recruit;
   }
+
 
   public String getPositionName() {
     return positionName;
@@ -49,6 +51,7 @@ public class Position {
     this.positionName = positionName;
   }
 
+
   public String getPositionCode() {
     return positionCode;
   }
@@ -56,6 +59,7 @@ public class Position {
   public void setPositionCode(String positionCode) {
     this.positionCode = positionCode;
   }
+
 
   public String getPositionClassify() {
     return positionClassify;
@@ -65,6 +69,7 @@ public class Position {
     this.positionClassify = positionClassify;
   }
 
+
   public String getFegisterName() {
     return fegisterName;
   }
@@ -73,21 +78,24 @@ public class Position {
     this.fegisterName = fegisterName;
   }
 
-  public Date getBeginTime() {
+
+  public java.sql.Date getBeginTime() {
     return beginTime;
   }
 
-  public void setBeginTime(Date beginTime) {
+  public void setBeginTime(java.sql.Date beginTime) {
     this.beginTime = beginTime;
   }
 
-  public Date getFinish() {
+
+  public java.sql.Date getFinish() {
     return finish;
   }
 
-  public void setFinish(Date finish) {
+  public void setFinish(java.sql.Date finish) {
     this.finish = finish;
   }
+
 
   public String getDepict() {
     return depict;
@@ -97,6 +105,7 @@ public class Position {
     this.depict = depict;
   }
 
+
   public String getAsk() {
     return ask;
   }
@@ -104,4 +113,5 @@ public class Position {
   public void setAsk(String ask) {
     this.ask = ask;
   }
+
 }

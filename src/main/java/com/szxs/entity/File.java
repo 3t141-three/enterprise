@@ -1,11 +1,9 @@
-package com.szxs.entity;
+package com.sample;
 
-
-import java.util.Date;
 
 public class File {
 
-  private Integer id;
+  private long id;
   private String fileCode;
   private String branchid;
   private String fileStatus;
@@ -14,7 +12,7 @@ public class File {
   private String name;
   private String sex;
   private String email;
-  private Integer phone;
+  private long phone;
   private String address;
   private String identityCard;
   private String hkAddress;
@@ -27,19 +25,22 @@ public class File {
   private String bankId;
   private String socialInsuranceId;
   private String register;
-  private Date build;
+  private java.sql.Date build;
   private String biographicalNotes;
   private String family;
   private String remarks;
   private String way;
+  private String check;
 
-  public Integer getId() {
+
+  public long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(long id) {
     this.id = id;
   }
+
 
   public String getFileCode() {
     return fileCode;
@@ -49,6 +50,7 @@ public class File {
     this.fileCode = fileCode;
   }
 
+
   public String getBranchid() {
     return branchid;
   }
@@ -56,6 +58,7 @@ public class File {
   public void setBranchid(String branchid) {
     this.branchid = branchid;
   }
+
 
   public String getFileStatus() {
     return fileStatus;
@@ -65,6 +68,7 @@ public class File {
     this.fileStatus = fileStatus;
   }
 
+
   public String getPositionCode() {
     return positionCode;
   }
@@ -72,6 +76,7 @@ public class File {
   public void setPositionCode(String positionCode) {
     this.positionCode = positionCode;
   }
+
 
   public String getPositionName() {
     return positionName;
@@ -81,6 +86,7 @@ public class File {
     this.positionName = positionName;
   }
 
+
   public String getName() {
     return name;
   }
@@ -88,6 +94,7 @@ public class File {
   public void setName(String name) {
     this.name = name;
   }
+
 
   public String getSex() {
     return sex;
@@ -97,6 +104,7 @@ public class File {
     this.sex = sex;
   }
 
+
   public String getEmail() {
     return email;
   }
@@ -105,13 +113,15 @@ public class File {
     this.email = email;
   }
 
-  public Integer getPhone() {
+
+  public long getPhone() {
     return phone;
   }
 
-  public void setPhone(Integer phone) {
+  public void setPhone(long phone) {
     this.phone = phone;
   }
+
 
   public String getAddress() {
     return address;
@@ -121,6 +131,7 @@ public class File {
     this.address = address;
   }
 
+
   public String getIdentityCard() {
     return identityCard;
   }
@@ -128,6 +139,7 @@ public class File {
   public void setIdentityCard(String identityCard) {
     this.identityCard = identityCard;
   }
+
 
   public String getHkAddress() {
     return hkAddress;
@@ -137,6 +149,7 @@ public class File {
     this.hkAddress = hkAddress;
   }
 
+
   public String getPoliticCountenance() {
     return politicCountenance;
   }
@@ -144,6 +157,7 @@ public class File {
   public void setPoliticCountenance(String politicCountenance) {
     this.politicCountenance = politicCountenance;
   }
+
 
   public String getInstitution() {
     return institution;
@@ -153,6 +167,7 @@ public class File {
     this.institution = institution;
   }
 
+
   public String getSpecialty() {
     return specialty;
   }
@@ -160,6 +175,7 @@ public class File {
   public void setSpecialty(String specialty) {
     this.specialty = specialty;
   }
+
 
   public String getRecord() {
     return record;
@@ -169,6 +185,7 @@ public class File {
     this.record = record;
   }
 
+
   public String getSalary() {
     return salary;
   }
@@ -176,6 +193,7 @@ public class File {
   public void setSalary(String salary) {
     this.salary = salary;
   }
+
 
   public String getBankName() {
     return bankName;
@@ -185,6 +203,7 @@ public class File {
     this.bankName = bankName;
   }
 
+
   public String getBankId() {
     return bankId;
   }
@@ -192,6 +211,7 @@ public class File {
   public void setBankId(String bankId) {
     this.bankId = bankId;
   }
+
 
   public String getSocialInsuranceId() {
     return socialInsuranceId;
@@ -201,6 +221,7 @@ public class File {
     this.socialInsuranceId = socialInsuranceId;
   }
 
+
   public String getRegister() {
     return register;
   }
@@ -209,13 +230,15 @@ public class File {
     this.register = register;
   }
 
-  public Date getBuild() {
+
+  public java.sql.Date getBuild() {
     return build;
   }
 
-  public void setBuild(Date build) {
+  public void setBuild(java.sql.Date build) {
     this.build = build;
   }
+
 
   public String getBiographicalNotes() {
     return biographicalNotes;
@@ -225,6 +248,7 @@ public class File {
     this.biographicalNotes = biographicalNotes;
   }
 
+
   public String getFamily() {
     return family;
   }
@@ -232,6 +256,7 @@ public class File {
   public void setFamily(String family) {
     this.family = family;
   }
+
 
   public String getRemarks() {
     return remarks;
@@ -241,6 +266,7 @@ public class File {
     this.remarks = remarks;
   }
 
+
   public String getWay() {
     return way;
   }
@@ -248,4 +274,14 @@ public class File {
   public void setWay(String way) {
     this.way = way;
   }
+
+
+  public String getCheck() {
+    return check;
+  }
+
+  public void setCheck(String check) {
+    this.check = check;
+  }
+
 }

@@ -1,4 +1,4 @@
-#ÅäÖÃÁ¬½ÓÊý¾Ý¿â
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 server:
   port: 8080
 
@@ -9,13 +9,13 @@ spring:
       suffix: .html
 
   datasource:
-    url: jdbc:mysql://localhost:3306/easybuy?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/hr?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 123456
+    password: 111111
 
 
-#ÅäÖÃmybatis
+#ï¿½ï¿½ï¿½ï¿½mybatis
 mybatis:
   type-aliases-package: com.wy.entity
   mapper-locations: classpath:xml/*.xml

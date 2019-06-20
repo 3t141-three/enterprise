@@ -8,44 +8,69 @@
 
     <link rel="stylesheet" href="css/layui.css">
     <script src="layui.js"></script>
-    <script src="/static/build/layui.js"></script>
+    <script src="/static/layui.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var code = $(".uu2");
+            var password = $(".uu3");
+
+            $('.uu4').click(function () {
+
+                if(code.val()==""){
+                   $(".uu2").attr("placeholder","账号不能为空")
+                    return false;
+                }else if (password.val()==""){
+                    $(".uu3").attr("placeholder","密码不能为空")
+                    return false;
+                }else {
+                    return true;
+                }
+            });
+
+        });
+    </script>
 </head>
 <body style="background-image: url('/images/face/0002.gif')">
 <style>
-#u2{
-    background:transparent;
-    size: 16px;
-    width: 300px;
-    height: 60px;
-    border: none;
-    outline: none;
-    border-bottom:1px solid #ffffff;
-    font-size: 30px;
-    color:#5f5f5f;
-    text-align: center;
+    #u2 {
+        background: transparent;
+        size: 16px;
+        width: 300px;
+        height: 60px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #ffffff;
+        font-size: 30px;
+        color: #5f5f5f;
+        text-align: center;
 
-}
-#u3{
+    }
 
-    color:#5f5f5f;
-    font-size: 24px;
-}
+    #u3 {
+
+        color: #5f5f5f;
+        font-size: 24px;
+    }
 
 </style>
 
-<form action="Login">
+<form action="Login" method="post">
 
     <div style="text-align:center ;margin-top: 300px">
 
         <div id="u3">ENTERPRISE HUMAN RESOURE SYSTEM</div>
         <br>
-        <div style="" >
-            <input id="u2" placeholder="Account or mailbox" name="code">
+        <div style="">
+            <input id="u2" class="uu2"   name="code">
         </div>
         <div style="margin-top: 30px">
-            <input id="u2" placeholder="Password" name="password">
+            <input id="u2" class="uu3"   name="password">
         </div>
-        <button style="margin-top: 30px;width: 200px" type="button" class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal">登录</button>
+        <button style="margin-top: 30px;width: 200px" type="submit"
+                class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal uu4">登录
+        </button>
     </div>
 
 </form>

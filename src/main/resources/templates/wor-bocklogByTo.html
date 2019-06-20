@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -19,6 +19,18 @@
 
         })
 
+
+    </script>
+    <script type="text/javascript">
+        function showTime(){
+            nowtime=new Date();
+            year=nowtime.getFullYear();
+            month=nowtime.getMonth()+1;
+            date=nowtime.getDate();
+            document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+        }
+
+        setInterval("showTime()",1000);
 
     </script>
 </head>
@@ -42,16 +54,19 @@
         <!--</ul>-->
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
+                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+                    <span th:text="${loginsessions.username}"></span>
                 </a>
                 <!--<dl class="layui-nav-child">-->
                 <!--<dd><a href="">基本资料</a></dd>-->
                 <!--<dd><a href="">安全设置</a></dd>-->
                 <!--</dl>-->
             </li>
-            <li class="layui-nav-item"><a href="">退出登录</a></li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
         </ul>
     </div>
 
@@ -126,7 +141,7 @@
     </div>
 
     <!--内容主体部分-->
-    <div class="layui-body">
+    <div class="layui-body" style="background-image: url('/images/face/0002.gif')">
 
 
         <div id="u18" class="ax_文本" style="margin: 10px 0px 0px 70px;font-size: 20px">
@@ -139,7 +154,7 @@
         </div>
         <form id="u17">
             <div style="display: inline;margin: 0px 200px 0px 50px;float: right;">
-                <img src="" style="width: 250px;height: 290px;">
+                <img src="/images/face/0002.gif" style="width: 250px;height: 290px;">
             </div>
             <div>
                 <div style="display: inline;margin: 0px 50px 0px 50px;">
@@ -225,7 +240,7 @@
                 </div>
             </div>
             <br>
-            <div>
+            <div style="margin-top: 20px">
                 <div style="display: inline;margin: 10px 50px 0px 50px;">
                     <span id="u20">身份证号:</span>
                     <input id="u21" value="" style="size: 30px">
@@ -386,7 +401,18 @@
         margin: 30px 20px 0px 20px;
         height: 35px;
     }
-
+    body{
+        color: rgba(162, 161, 166, 0.96);
+    }
+    input{
+        font-size: 18px;
+        size: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #ffffff;
+        color: rgba(162, 161, 166, 0.96);
+    }
 
 </style>
 

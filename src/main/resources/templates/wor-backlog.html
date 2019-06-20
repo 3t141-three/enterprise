@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,15 +14,31 @@
     <link rel="stylesheet" href="css/layui.css">
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript">
-        jQuery(function () {
+        $(function(){
+
+            var code = $(".uu2");
+            var password = $(".uu3");
+
+            $('.uu4').click(function () {
 
 
-        })
+        });
+    </script>
+    <script type="text/javascript">
+        function showTime(){
+            nowtime=new Date();
+            year=nowtime.getFullYear();
+            month=nowtime.getMonth()+1;
+            date=nowtime.getDate();
+            document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+        }
 
+        setInterval("showTime()",1000);
 
     </script>
+
 </head>
-<body class="layui-layout-body">
+<body class="layui-layout-body" >
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">企业人力资源系统</div>
@@ -40,18 +56,22 @@
         <!--</dl>-->
         <!--</li>-->
         <!--</ul>-->
+
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
+                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+                    <span th:text="${loginsessions.username}"></span>
                 </a>
                 <!--<dl class="layui-nav-child">-->
                 <!--<dd><a href="">基本资料</a></dd>-->
                 <!--<dd><a href="">安全设置</a></dd>-->
                 <!--</dl>-->
             </li>
-            <li class="layui-nav-item"><a href="">退出登录</a></li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
         </ul>
     </div>
 
@@ -126,7 +146,7 @@
     </div>
 
     <!--内容主体部分-->
-    <div class="layui-body">
+    <div class="layui-body" style="background-image: url('/images/face/0002.gif')">
 
 
         <div id="u18" class="ax_文本" style="margin: 10px 0px 0px 70px;font-size: 20px">
@@ -137,32 +157,31 @@
 
         </div>
 
-        <form id="u17">
+        <form id="u17" action="bocklog">
             <div style="display: inline;margin: 0px 50px 0px 50px;">
                 <span id="u20">任务名称：</span>
-                <input id="u21" value="" style="size: 30px">
+                <input id="u21" name="taskName">
             </div>
             <div style="display: inline;margin: 0px 50px 0px 50px;">
                 <span id="u22">待办分类：</span>
-                <select id="u23" name="city" lay-verify="required">
+                <select id="u23"  lay-verify="required" name="type">
                     <option value="">--请选择--</option>
-                    <option value="0">北京</option>
-                    <option value="1">上海</option>
-                    <option value="2">广州</option>
-                    <option value="3">深圳</option>
-                    <option value="4">杭州</option>
+                    <option th:each="tl:${tasktypesList}"  >
+                        <span id="" th:text="${tl.type}" th:value="${tl.id}">北京</span>
+                    </option>
+
                 </select>
             </div>
 
             <div style="display: inline;margin: 0px 50px 0px 50px;">
                 <label id="u24">到达日期：</label>
                 <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
-                    <input type="text" class="layui-input" id="test1">
+                    <input type="text" class="layui-input" id="test1" >
                 </div>
             </div>
 
 
-            <button type="button" class="layui-btn layui-btn-primary">查询</button>
+            <button type="submit" class="layui-btn layui-btn-primary">查询</button>
 
         </form>
 
@@ -181,37 +200,27 @@
                 <th style="width: 300px">操作</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>贤心</td>
-                <td>2016-11-29</td>
-                <td>人生就像是一场修行生就像是一场修生就像是一场修生就像是一场修生就像是一场修</td>
+            <tbody th:each="tl:${taskList}">
+            <tr >
+                <td th:switch="${tl.typeid}">
+                    <span th:case="'1'">人事档案录入审核</span>
+                    <span th:case="'2'">人事档案变更</span>
+                    <span th:case="'3'">职位审核</span>
+                    <span th:case="'4'">招聘录用审核</span>
+                    <span th:case="'5'">培训计划审核</span>
+                    <span th:case="'6'">薪资标准审核</span>
+                    <span th:case="'7'">薪资标准变更</span>
+                    <span th:case="'8'">薪资发放审核</span>
+                </td>
+                <td th:text="${#dates.format(tl.arrive,'yyyy-MM-dd ')}">2016-11-29</td>
+                <td th:text="${tl.taskName}">人生就像是一场修行生就像是一场修生就像是一场修生就像是一场修生就像是一场修</td>
                 <td><a href="bocklogByTo">
                     <button type="button" class="layui-btn layui-btn-normal" id="u26">处理</button>
                 </a>
                     <button type="button" class="layui-btn layui-btn-normal" id="u27">明细</button>
                 </td>
             </tr>
-            <tr>
-                <td>贤心</td>
-                <td>2016-11-29</td>
-                <td>人生就像是一场修行生就像是一场修生就像是一场修生就像是一场修生就像是一场修</td>
-                <td><a href="bocklogByTo">
-                    <button type="button" class="layui-btn layui-btn-normal" id="u26">处理</button>
-                </a>
-                    <button type="button" class="layui-btn layui-btn-normal" id="u27">明细</button>
-                </td>
-            </tr>
-            <tr>
-                <td>贤心</td>
-                <td>2016-11-29</td>
-                <td>人生就像是一场修行生就像是一场修生就像是一场修生就像是一场修生就像是一场修</td>
-                <td><a href="bocklogByTo">
-                    <button type="button" class="layui-btn layui-btn-normal" id="u26">处理</button>
-                </a>
-                    <button type="button" class="layui-btn layui-btn-normal" id="u27">明细</button>
-                </td>
-            </tr>
+
 
 
             </tbody>
@@ -265,7 +274,18 @@
         width: 90%;
         margin-left: 5%;
     }
-
+    body{
+        color: rgb(119, 118, 123);
+    }
+    input{
+        font-size: 18px;
+        size: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #ffffff;
+        color: rgb(119, 118, 123);
+    }
 
 </style>
 

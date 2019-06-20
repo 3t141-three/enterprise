@@ -1,28 +1,28 @@
-package com.szxs.entity;
+package com.sample;
 
-
-import java.sql.Timestamp;
 
 public class Cultivate {
 
-  private Integer id;
+  private long id;
   private String cultivateName;
   private String cultivateTeacher;
-  private Timestamp beginTime;
-  private Timestamp finish;
+  private java.sql.Timestamp beginTime;
+  private java.sql.Timestamp finish;
   private String purpose;
   private String participant;
   private String introduce;
   private String means;
   private String cultivateExamine;
 
-  public Integer getId() {
+
+  public long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(long id) {
     this.id = id;
   }
+
 
   public String getCultivateName() {
     return cultivateName;
@@ -32,6 +32,7 @@ public class Cultivate {
     this.cultivateName = cultivateName;
   }
 
+
   public String getCultivateTeacher() {
     return cultivateTeacher;
   }
@@ -40,21 +41,24 @@ public class Cultivate {
     this.cultivateTeacher = cultivateTeacher;
   }
 
-  public Timestamp getBeginTime() {
+
+  public java.sql.Timestamp getBeginTime() {
     return beginTime;
   }
 
-  public void setBeginTime(Timestamp beginTime) {
+  public void setBeginTime(java.sql.Timestamp beginTime) {
     this.beginTime = beginTime;
   }
 
-  public Timestamp getFinish() {
+
+  public java.sql.Timestamp getFinish() {
     return finish;
   }
 
-  public void setFinish(Timestamp finish) {
+  public void setFinish(java.sql.Timestamp finish) {
     this.finish = finish;
   }
+
 
   public String getPurpose() {
     return purpose;
@@ -64,6 +68,7 @@ public class Cultivate {
     this.purpose = purpose;
   }
 
+
   public String getParticipant() {
     return participant;
   }
@@ -71,6 +76,7 @@ public class Cultivate {
   public void setParticipant(String participant) {
     this.participant = participant;
   }
+
 
   public String getIntroduce() {
     return introduce;
@@ -80,6 +86,7 @@ public class Cultivate {
     this.introduce = introduce;
   }
 
+
   public String getMeans() {
     return means;
   }
@@ -88,6 +95,7 @@ public class Cultivate {
     this.means = means;
   }
 
+
   public String getCultivateExamine() {
     return cultivateExamine;
   }
@@ -95,4 +103,5 @@ public class Cultivate {
   public void setCultivateExamine(String cultivateExamine) {
     this.cultivateExamine = cultivateExamine;
   }
+
 }

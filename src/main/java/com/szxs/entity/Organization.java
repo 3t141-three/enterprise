@@ -1,9 +1,9 @@
-package com.szxs.entity;
+package com.sample;
 
 
 public class Organization {
 
-  private Integer id;
+  private long id;
   private String code;
   private String call;
   private String organizationName;
@@ -13,11 +13,11 @@ public class Organization {
   private String remarks;
 
 
-  public Integer getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(long id) {
     this.id = id;
   }
 
