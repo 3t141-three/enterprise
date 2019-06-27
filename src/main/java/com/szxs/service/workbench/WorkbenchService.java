@@ -28,4 +28,11 @@ public interface WorkbenchService {
      * @return
      */
     List<Task> queryTask(Task task);
+
+    /**
+     * 修改用户密码
+     * @param user
+     * @return
+     */
+    int updateUser(User user);
 }

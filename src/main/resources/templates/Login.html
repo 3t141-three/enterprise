@@ -13,16 +13,19 @@
     <script type="text/javascript">
         $(function(){
 
-            var code = $(".uu2");
-            var password = $(".uu3");
 
             $('.uu4').click(function () {
 
-                if(code.val()==""){
+                var code = $(".uu2").val();
+                var password = $(".uu3").val();
+                if(code==""){
                    $(".uu2").attr("placeholder","账号不能为空")
                     return false;
-                }else if (password.val()==""){
+                }else if (password==""){
                     $(".uu3").attr("placeholder","密码不能为空")
+                    return false;
+                }else if (password.length<6) {
+                   alert("密码不能小于6位数");
                     return false;
                 }else {
                     return true;

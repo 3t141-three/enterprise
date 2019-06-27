@@ -1,6 +1,8 @@
 package com.szxs.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Task {
@@ -8,6 +10,7 @@ public class Task {
   private Integer id;
   private String taskName;
   private Integer typeid;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date arrive;
 private Tasktype tasktype;
 

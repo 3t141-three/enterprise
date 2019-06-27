@@ -32,4 +32,9 @@ public class WorkbenchServiceImpl implements WorkbenchService {
         return workbenchMapper.queryTask(task);
     }
 
+    @Override
+    public int updateUser(User user) {
+        return workbenchMapper.updateUser(user);
+    }
+
 }

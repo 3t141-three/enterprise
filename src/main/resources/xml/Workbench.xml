@@ -27,11 +27,11 @@
             <if test='taskName!=null and taskName!=""'>
                and taskName like concat('%',#{taskName},'%')
             </if>
-            <if test="taskName>0">
-                and type = #{type}
+            <if test="typeid>0">
+                and typeid = #{typeid}
             </if>
-            <if test="arrive!=null and arrive!=''">
-                and arrive like arrive
+            <if test="arrive!=null">
+                and arrive =#{arrive}
             </if>
         </where>
 
@@ -58,5 +58,17 @@
 
     <!--</select>-->
 
+    <!--修改用户密码-->
+    <insert id="updateUser">
+
+        update user
+        <set>
+            <if test="password != null and password != '' ">
+                password = #{password},
+            </if>
+        </set>
+
+        where id = #{id}
+    </insert>
 
 </mapper>

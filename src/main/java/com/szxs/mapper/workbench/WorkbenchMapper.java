@@ -33,4 +33,11 @@ public interface WorkbenchMapper {
     List<Task> queryTask(Task task);
 
 
+    /**
+     * 修改用户密码
+     * @param user
+     * @return
+     */
+    int updateUser(User user);
+
 }
