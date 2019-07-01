@@ -3,7 +3,7 @@ package com.szxs.entity;
 
 public class Addposition {
 
-  private long id;
+  private Integer id;
   private String positionCode;
   private String positionName;
   private String type;
@@ -12,11 +12,11 @@ public class Addposition {
   private String remarks;
 
 
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

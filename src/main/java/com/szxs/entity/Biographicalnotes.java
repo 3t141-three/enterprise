@@ -1,17 +1,19 @@
-package com.sample;
+package com.szxs.entity;
 
+
+import java.util.Date;
 
 public class Biographicalnotes {
 
-  private long id;
-  private long positionId;
+  private Integer id;
+  private Integer positionId;
   private String positionCode;
   private String positionClassify;
   private String name;
   private String sex;
   private String recruitmentType;
   private String email;
-  private long phone;
+  private Integer phone;
   private String hkAddress;
   private String address;
   private String politicCountenance;
@@ -23,32 +25,29 @@ public class Biographicalnotes {
   private String salary;
   private String isService;
   private String freshGraduate;
-  private java.sql.Date registerDate;
+  private Date registerDate;
   private String biographicalnotes;
   private String way;
   private String recommend;
   private String recommendName;
-  private java.sql.Date recommendTime;
+  private Date recommendTime;
   private String idea;
 
-
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
-
-  public long getPositionId() {
+  public Integer getPositionId() {
     return positionId;
   }
 
-  public void setPositionId(long positionId) {
+  public void setPositionId(Integer positionId) {
     this.positionId = positionId;
   }
-
 
   public String getPositionCode() {
     return positionCode;
@@ -58,7 +57,6 @@ public class Biographicalnotes {
     this.positionCode = positionCode;
   }
 
-
   public String getPositionClassify() {
     return positionClassify;
   }
@@ -66,7 +64,6 @@ public class Biographicalnotes {
   public void setPositionClassify(String positionClassify) {
     this.positionClassify = positionClassify;
   }
-
 
   public String getName() {
     return name;
@@ -76,7 +73,6 @@ public class Biographicalnotes {
     this.name = name;
   }
 
-
   public String getSex() {
     return sex;
   }
@@ -84,7 +80,6 @@ public class Biographicalnotes {
   public void setSex(String sex) {
     this.sex = sex;
   }
-
 
   public String getRecruitmentType() {
     return recruitmentType;
@@ -94,7 +89,6 @@ public class Biographicalnotes {
     this.recruitmentType = recruitmentType;
   }
 
-
   public String getEmail() {
     return email;
   }
@@ -103,15 +97,13 @@ public class Biographicalnotes {
     this.email = email;
   }
 
-
-  public long getPhone() {
+  public Integer getPhone() {
     return phone;
   }
 
-  public void setPhone(long phone) {
+  public void setPhone(Integer phone) {
     this.phone = phone;
   }
-
 
   public String getHkAddress() {
     return hkAddress;
@@ -121,7 +113,6 @@ public class Biographicalnotes {
     this.hkAddress = hkAddress;
   }
 
-
   public String getAddress() {
     return address;
   }
@@ -129,7 +120,6 @@ public class Biographicalnotes {
   public void setAddress(String address) {
     this.address = address;
   }
-
 
   public String getPoliticCountenance() {
     return politicCountenance;
@@ -139,7 +129,6 @@ public class Biographicalnotes {
     this.politicCountenance = politicCountenance;
   }
 
-
   public String getIdentityCard() {
     return identityCard;
   }
@@ -147,7 +136,6 @@ public class Biographicalnotes {
   public void setIdentityCard(String identityCard) {
     this.identityCard = identityCard;
   }
-
 
   public String getInstitution() {
     return institution;
@@ -157,7 +145,6 @@ public class Biographicalnotes {
     this.institution = institution;
   }
 
-
   public String getRecord() {
     return record;
   }
@@ -165,7 +152,6 @@ public class Biographicalnotes {
   public void setRecord(String record) {
     this.record = record;
   }
-
 
   public String getSpecialty() {
     return specialty;
@@ -175,7 +161,6 @@ public class Biographicalnotes {
     this.specialty = specialty;
   }
 
-
   public String getWorkExperience() {
     return workExperience;
   }
@@ -183,7 +168,6 @@ public class Biographicalnotes {
   public void setWorkExperience(String workExperience) {
     this.workExperience = workExperience;
   }
-
 
   public String getSalary() {
     return salary;
@@ -193,7 +177,6 @@ public class Biographicalnotes {
     this.salary = salary;
   }
 
-
   public String getIsService() {
     return isService;
   }
@@ -201,7 +184,6 @@ public class Biographicalnotes {
   public void setIsService(String isService) {
     this.isService = isService;
   }
-
 
   public String getFreshGraduate() {
     return freshGraduate;
@@ -211,15 +193,13 @@ public class Biographicalnotes {
     this.freshGraduate = freshGraduate;
   }
 
-
-  public java.sql.Date getRegisterDate() {
+  public Date getRegisterDate() {
     return registerDate;
   }
 
-  public void setRegisterDate(java.sql.Date registerDate) {
+  public void setRegisterDate(Date registerDate) {
     this.registerDate = registerDate;
   }
-
 
   public String getBiographicalnotes() {
     return biographicalnotes;
@@ -229,7 +209,6 @@ public class Biographicalnotes {
     this.biographicalnotes = biographicalnotes;
   }
 
-
   public String getWay() {
     return way;
   }
@@ -237,7 +216,6 @@ public class Biographicalnotes {
   public void setWay(String way) {
     this.way = way;
   }
-
 
   public String getRecommend() {
     return recommend;
@@ -247,7 +225,6 @@ public class Biographicalnotes {
     this.recommend = recommend;
   }
 
-
   public String getRecommendName() {
     return recommendName;
   }
@@ -256,15 +233,13 @@ public class Biographicalnotes {
     this.recommendName = recommendName;
   }
 
-
-  public java.sql.Date getRecommendTime() {
+  public Date getRecommendTime() {
     return recommendTime;
   }
 
-  public void setRecommendTime(java.sql.Date recommendTime) {
+  public void setRecommendTime(Date recommendTime) {
     this.recommendTime = recommendTime;
   }
-
 
   public String getIdea() {
     return idea;
@@ -273,5 +248,4 @@ public class Biographicalnotes {
   public void setIdea(String idea) {
     this.idea = idea;
   }
-
 }

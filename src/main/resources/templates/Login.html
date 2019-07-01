@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
@@ -11,26 +11,42 @@
     <script src="/static/layui.js"></script>
     <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             $("input").attr('autocomplete', 'off');
+
 
             $('.uu4').click(function () {
 
                 var code = $(".uu2").val();
                 var password = $(".uu3").val();
-                if(code==""){
-                   $(".uu2").attr("placeholder","账号不能为空")
+                if (code == "") {
+                    $(".uu2").attr("placeholder", "账号不能为空")
                     return false;
-                }else if (password==""){
-                    $(".uu3").attr("placeholder","密码不能为空")
+                } else if (password == "") {
+                    $(".uu3").attr("placeholder", "密码不能为空")
                     return false;
-                }else if (password.length<6) {
-                   alert("密码不能小于6位数");
+                } else if (password.length < 6) {
+                    alert("密码不能小于6位数");
                     return false;
-                }else {
+                } else {
                     return true;
                 }
             });
+
+        });
+    </script>
+    <script src="layer.js"></script>
+    <script>
+        layui.use('layer', function(){
+            var layer = layui.layer;
+
+            var ti = $("#u4").html();
+
+            if(ti!=null){
+                layer.msg(ti);
+            }
+
+
 
         });
     </script>
@@ -54,22 +70,25 @@
     #u3 {
 
         color: #5f5f5f;
-        font-size: 24px;
+        font-size: 36px;
     }
 
 </style>
 
 <form action="Login" method="post">
-
+<span th:if="${ti}!=null">
+    <span id="u4" style="display: none" th:text="${ti}"></span>
+    </span>
     <div style="text-align:center ;margin-top: 300px">
+
 
         <div id="u3">ENTERPRISE HUMAN RESOURE SYSTEM</div>
         <br>
         <div style="">
-            <input id="u2" class="uu2"   name="code">
+            <input id="u2" class="uu2" name="code">
         </div>
         <div style="margin-top: 30px">
-            <input id="u2" class="uu3" type="password"  name="password">
+            <input id="u2" class="uu3" type="password" name="password">
         </div>
         <button style="margin-top: 30px;width: 200px" type="submit"
                 class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal uu4">登录

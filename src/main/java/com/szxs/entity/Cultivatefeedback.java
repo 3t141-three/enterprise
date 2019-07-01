@@ -1,32 +1,29 @@
-package com.sample;
+package com.szxs.entity;;
 
 
 public class Cultivatefeedback {
 
-  private long id;
-  private long cultivateId;
+  private Integer id;
+  private Integer cultivateId;
   private String result;
   private String sumUp;
   private String examine;
 
-
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
-
-  public long getCultivateId() {
+  public Integer getCultivateId() {
     return cultivateId;
   }
 
-  public void setCultivateId(long cultivateId) {
+  public void setCultivateId(Integer cultivateId) {
     this.cultivateId = cultivateId;
   }
-
 
   public String getResult() {
     return result;
@@ -36,7 +33,6 @@ public class Cultivatefeedback {
     this.result = result;
   }
 
-
   public String getSumUp() {
     return sumUp;
   }
@@ -45,7 +41,6 @@ public class Cultivatefeedback {
     this.sumUp = sumUp;
   }
 
-
   public String getExamine() {
     return examine;
   }
@@ -53,5 +48,4 @@ public class Cultivatefeedback {
   public void setExamine(String examine) {
     this.examine = examine;
   }
-
 }

@@ -1,24 +1,22 @@
-package com.sample;
+package com.szxs.entity;
 
 
 public class Professionaltitle {
 
-  private long id;
+  private Integer id;
   private String professionalTitleCode;
   private String professionalTitleName;
-  private long departmentId;
+  private Integer departmentId;
   private String depict;
   private String remarks;
 
-
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
-
 
   public String getProfessionalTitleCode() {
     return professionalTitleCode;
@@ -28,7 +26,6 @@ public class Professionaltitle {
     this.professionalTitleCode = professionalTitleCode;
   }
 
-
   public String getProfessionalTitleName() {
     return professionalTitleName;
   }
@@ -37,15 +34,13 @@ public class Professionaltitle {
     this.professionalTitleName = professionalTitleName;
   }
 
-
-  public long getDepartmentId() {
+  public Integer getDepartmentId() {
     return departmentId;
   }
 
-  public void setDepartmentId(long departmentId) {
+  public void setDepartmentId(Integer departmentId) {
     this.departmentId = departmentId;
   }
-
 
   public String getDepict() {
     return depict;
@@ -55,7 +50,6 @@ public class Professionaltitle {
     this.depict = depict;
   }
 
-
   public String getRemarks() {
     return remarks;
   }
@@ -63,5 +57,4 @@ public class Professionaltitle {
   public void setRemarks(String remarks) {
     this.remarks = remarks;
   }
-
 }

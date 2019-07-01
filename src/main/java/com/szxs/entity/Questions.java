@@ -1,28 +1,28 @@
-package com.sample;
+package com.szxs.entity;
 
+
+import java.util.Date;
 
 public class Questions {
 
-  private long id;
+  private Integer id;
   private String questionsName;
   private String type;
   private String departmentName;
   private String grade;
   private String person;
-  private java.sql.Date time;
+  private Date time;
   private String question;
   private String remarks;
   private String appendix;
 
-
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
-
 
   public String getQuestionsName() {
     return questionsName;
@@ -32,7 +32,6 @@ public class Questions {
     this.questionsName = questionsName;
   }
 
-
   public String getType() {
     return type;
   }
@@ -40,7 +39,6 @@ public class Questions {
   public void setType(String type) {
     this.type = type;
   }
-
 
   public String getDepartmentName() {
     return departmentName;
@@ -50,7 +48,6 @@ public class Questions {
     this.departmentName = departmentName;
   }
 
-
   public String getGrade() {
     return grade;
   }
@@ -58,7 +55,6 @@ public class Questions {
   public void setGrade(String grade) {
     this.grade = grade;
   }
-
 
   public String getPerson() {
     return person;
@@ -68,15 +64,13 @@ public class Questions {
     this.person = person;
   }
 
-
-  public java.sql.Date getTime() {
+  public Date getTime() {
     return time;
   }
 
-  public void setTime(java.sql.Date time) {
+  public void setTime(Date time) {
     this.time = time;
   }
-
 
   public String getQuestion() {
     return question;
@@ -86,7 +80,6 @@ public class Questions {
     this.question = question;
   }
 
-
   public String getRemarks() {
     return remarks;
   }
@@ -95,7 +88,6 @@ public class Questions {
     this.remarks = remarks;
   }
 
-
   public String getAppendix() {
     return appendix;
   }
@@ -103,5 +95,4 @@ public class Questions {
   public void setAppendix(String appendix) {
     this.appendix = appendix;
   }
-
 }

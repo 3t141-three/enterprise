@@ -1,28 +1,28 @@
-package com.sample;
+package com.szxs.entity;
 
+
+import java.util.Date;
 
 public class Cultivate {
 
-  private long id;
+  private Integer id;
   private String cultivateName;
   private String cultivateTeacher;
-  private java.sql.Timestamp beginTime;
-  private java.sql.Timestamp finish;
+  private Date beginTime;
+  private Date finish;
   private String purpose;
   private String participant;
   private String introduce;
   private String means;
   private String cultivateExamine;
 
-
-  public long getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Integer id) {
     this.id = id;
   }
-
 
   public String getCultivateName() {
     return cultivateName;
@@ -32,7 +32,6 @@ public class Cultivate {
     this.cultivateName = cultivateName;
   }
 
-
   public String getCultivateTeacher() {
     return cultivateTeacher;
   }
@@ -41,24 +40,21 @@ public class Cultivate {
     this.cultivateTeacher = cultivateTeacher;
   }
 
-
-  public java.sql.Timestamp getBeginTime() {
+  public Date getBeginTime() {
     return beginTime;
   }
 
-  public void setBeginTime(java.sql.Timestamp beginTime) {
+  public void setBeginTime(Date beginTime) {
     this.beginTime = beginTime;
   }
 
-
-  public java.sql.Timestamp getFinish() {
+  public Date getFinish() {
     return finish;
   }
 
-  public void setFinish(java.sql.Timestamp finish) {
+  public void setFinish(Date finish) {
     this.finish = finish;
   }
-
 
   public String getPurpose() {
     return purpose;
@@ -68,7 +64,6 @@ public class Cultivate {
     this.purpose = purpose;
   }
 
-
   public String getParticipant() {
     return participant;
   }
@@ -76,7 +71,6 @@ public class Cultivate {
   public void setParticipant(String participant) {
     this.participant = participant;
   }
-
 
   public String getIntroduce() {
     return introduce;
@@ -86,7 +80,6 @@ public class Cultivate {
     this.introduce = introduce;
   }
 
-
   public String getMeans() {
     return means;
   }
@@ -95,7 +88,6 @@ public class Cultivate {
     this.means = means;
   }
 
-
   public String getCultivateExamine() {
     return cultivateExamine;
   }
@@ -103,5 +95,4 @@ public class Cultivate {
   public void setCultivateExamine(String cultivateExamine) {
     this.cultivateExamine = cultivateExamine;
   }
-
 }

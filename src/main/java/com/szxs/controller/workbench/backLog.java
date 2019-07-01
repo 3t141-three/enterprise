@@ -25,6 +25,8 @@ public class backLog {
     @Resource
     private WorkbenchService workbenchService;
 
+
+
     //跳到登录页面
     @RequestMapping("/ByLogin")
     public String ByLogin() {
@@ -68,8 +70,11 @@ public class backLog {
     public String bocklog(String code, String password,String arrive, Model model, HttpSession session, Task task, @RequestParam(required = false) String OrganizationId) throws ParseException {
         Object loginsession = session.getAttribute("loginsession");
 
+        //判断是否登录
         if(loginsession==null){
 
+            String ti = "请先登录";
+            model.addAttribute("ti",ti);
 
             return "Login";
         }
@@ -137,11 +142,15 @@ public class backLog {
     @RequestMapping("/changePassword")
     public String changePassword(HttpSession session,Model model) {
         Object loginsession = session.getAttribute("loginsession");
+        //判断是否登录
         if(loginsession==null){
 
+            String ti = "请先登录";
+            model.addAttribute("ti",ti);
 
             return "Login";
         }
+
         model.addAttribute("loginsessions", loginsession);
         return "wor-changePassword";
     }
@@ -164,8 +173,11 @@ public class backLog {
     @RequestMapping("/bocklogByTo")
     public String bocklogByTo(HttpSession session, Model model) {
         Object loginsession = session.getAttribute("loginsession");
+        //判断是否登录
         if(loginsession==null){
 
+            String ti = "请先登录";
+            model.addAttribute("ti",ti);
 
             return "Login";
         }

@@ -15,7 +15,6 @@ spring:
     password: 111111
 
 
-#����mybatis
 mybatis:
-  type-aliases-package: com.wy.entity
+  type-aliases-package: com.szxs.entity
   mapper-locations: classpath:xml/*.xml
