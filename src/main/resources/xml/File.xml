@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szxs.mapper.analyze.FileMapper">
+
+    <resultMap id="fileMap" type="com.szxs.entity.File">
+        <id column="id" property="id"/>
+        <id column="fileCode" property="fileCode"/>
+        <id column="fileStatusId" property="fileStatusId"/>
+        <id column="name" property="name"/>
+        <id column="sex" property="sex"/>
+        <id column="positionName" property="positionName"/>
+        <id column="salary" property="salary"/>
+        <id column="phone" property="phone"/>
+        <id column="build" property="build"/>
+        <association property="organization" javaType="com.szxs.entity.Organization">
+            <id column="id" property="id"/>
+            <id column="organizationName" property="organizationName"/>
+        </association>
+
+        <association property="fileStatus" javaType="com.szxs.entity.FileStatus">
+            <id column="id" property="id"/>
+            <id column="fileName" property="fileName"/>
+        </association>
+    </resultMap>
+
+
+    <select id="queryAllFile" resultMap="fileMap">
+        select f1.*,f2.*,o.* from file f1,file_status f2,organization o
+        <where>
+            f1.fileStatusId = f2.id and f1.organizationId = o.id
+
+            <if test="organizationId>0">
+                and organizationId=#{organizationId}
+            </if>
+
+            <if test="name!=null and name!=''">
+                and name=#{name}
+            </if>
+
+            <if test="fileStatusId>0">
+                and fileStatusId=#{fileStatusId}
+            </if>
+        </where>
+    </select>
+
+    <select id="countByYearAndRecord" resultType="_int">
+
+       SELECT COUNT(*) AS `count`,DATE_FORMAT(build,'%Y') AS `year` FROM FILE
+        <where>
+            <if test="build!=null and build!=''">
+                build = #{build}
+            </if>
+
+            <if test="record!=null and record!=''">
+                record = #{record}
+            </if>
+        </where>
+        GROUP BY `year`
+    </select>
+
+</mapper>
