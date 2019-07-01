@@ -12,11 +12,11 @@ import java.util.List;
 public class AnaFileServiceImpl implements AnaFileService {
 
     @Resource
-    private FileMapper fileMapper;
+    private ana_FileMapper anaFileMapper;
 
     @Override
     public List<File> queryAllFile(File file) {
-        return fileMapper.queryAllFile(file);
+        return anaFileMapper.queryAllFile(file);
     }
 
     @Override

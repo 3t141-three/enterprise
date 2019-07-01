@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface FileMapper {
+public interface ana_FileMapper {
 
     /**
      * 查询所有的职员信息

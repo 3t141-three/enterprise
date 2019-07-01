@@ -87,7 +87,7 @@
                 <li class="layui-nav-item">
                     <a class="" href="javascript:;">人事管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">人事档案管理</a></dd>
+                        <dd><a href="showList">人事档案管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -167,7 +167,7 @@
                     <td th:text="${file.positionName}">UI工程师</td>
                     <td th:text="${file.salary}">中级软件开发工程师</td>
                     <td th:text="${file.phone}">12345678978</td>
-                    <td th:text="${file.fileStatus.fileName}">正式员工</td>
+                    <td th:text="${file.fileStatuss.fileName}">正式员工</td>
                     <td th:text="${#dates.format(file.build,'yyyy-MM-dd ')}">2019-06-13</td>
                 </tr>
 

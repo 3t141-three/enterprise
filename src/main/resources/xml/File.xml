@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.szxs.mapper.analyze.FileMapper">
+<mapper namespace="com.szxs.mapper.analyze.ana_FileMapper">
 
     <resultMap id="fileMap" type="com.szxs.entity.File">
         <id column="id" property="id"/>
@@ -18,7 +18,7 @@
             <id column="organizationName" property="organizationName"/>
         </association>
 
-        <association property="fileStatus" javaType="com.szxs.entity.FileStatus">
+        <association property="fileStatuss" javaType="com.szxs.entity.FileStatus">
             <id column="id" property="id"/>
             <id column="fileName" property="fileName"/>
         </association>
