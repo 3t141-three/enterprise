@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szxs.mapper.personnel.fileMapper">
+    <select id="queryArchives" resultType="File">
+        SELECT *  FROM FILE
+    </select>
+
+    <select id="queryFileByid" resultType="File">
+        select * from file where id = #{id}
+    </select>
+
+    <select id="queryFileStatus" resultType="File">
+        SELECT * FROM FILE  WHERE `fileStatus` ='正式员工'
+    </select>
+
+    <select id="queryChecks" resultType="File">
+        select * from file where checks='审核中'
+    </select>
+
+    <update id="updateChecks">
+         UPDATE FILE SET `checks` = '审核通过'  WHERE `checks` = '审核中'
+    </update>
+
+    <select id="queryCultivate" resultType="Cultivate">
+        select * from Cultivate where id=1
+    </select>
+
+    <delete id="deleteFile">
+        delete from file where id = #{id}
+    </delete>
+
+    <select id="getFileByWhere" resultType="File" >
+        select * from file where 1=1
+        <choose>
+            <when test="fileCode !=null and fileCode !=''">
+                and fileCode like concat('%',${fileCode},'%')
+            </when>
+            <when test="checks !=null and checks !=''">
+                and checks like concat('%',${checks},'%')
+            </when>
+            <when test="fileStatus !=null and fileStatus !=''">
+                and fileStatus like concat('%',${fileStatus},'%')
+            </when>
+            <otherwise>
+                and build &lt; #{build}
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insertfile" >
+        insert into file
+        values (default ,#{fileCode} ,#{branchid},#{fileStatus},#{positionCode},#{positionName},#{name},#{sex},
+        #{email},#{phone},#{address},#{identityCard},#{hkAddress},#{politicCountenance},#{institution},
+        #{specialty},#{record},#{salary},#{bankName},#{bankId},#{socialInsuranceId},#{register},#{build},
+        null ,null,null ,null ,null )
+    </insert>
+
+
+</mapper>

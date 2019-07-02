@@ -21,7 +21,7 @@ public class AnaFileServiceImpl implements AnaFileService {
 
     @Override
     public List<File> countByYearAndRecord() {
-        return fileMapper.countByYearAndRecord();
+        return anaFileMapper.countByYearAndRecord();
     }
 
 
