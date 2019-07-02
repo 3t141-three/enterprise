@@ -40,10 +40,10 @@ CREATE TABLE `pay` (
   `remuneration` INT(11) NOT NULL COMMENT '基本薪酬总额',
   `amount` INT(11) NOT NULL COMMENT '实发金额',
   `ptime` DATETIME  NOT NULL COMMENT '发放时间',
-  `pnumber` INT(5)  NOT NULL COMMENT '序号',
-   `levelin` VARCHAR(50)  NOT NULL COMMENT '一级机构',
-   `institutions` VARCHAR(50)  NOT NULL COMMENT '二级机构',
-  `Thenumberof` INT(11) NOT NULL COMMENT '人数'
+  `pnumber` INT(5)   COMMENT '序号',
+   `levelin` VARCHAR(50)   COMMENT '一级机构',
+   `institutions` VARCHAR(50)   COMMENT '二级机构',
+  `Thenumberof` INT(11)  COMMENT '人数'
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 INSERT INTO `hr`.`pay` (`compensation`, 
 	`numberofcompensation`, 
