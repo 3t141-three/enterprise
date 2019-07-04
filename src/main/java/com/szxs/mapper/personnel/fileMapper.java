@@ -2,6 +2,7 @@ package com.szxs.mapper.personnel;
 
 import com.szxs.entity.Cultivate;
 import com.szxs.entity.File;
+import com.szxs.entity.Task;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,6 +16,12 @@ public interface fileMapper {
      * @return
      */
     List<File> queryArchives();
+
+    /**
+     * 根据档案编码查询档案信息
+     * @return
+     */
+    List<File> queryArchivesById(File file);
 
 
     /**
@@ -44,6 +51,8 @@ public interface fileMapper {
      * @return
      */
     int updateChecks(String checks);
+
+
 
     /**
      * 根据档案编码 审核状态 档案状态 登记时间(全部模糊查询)
