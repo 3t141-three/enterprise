@@ -31,7 +31,7 @@
         delete from file where id = #{id}
     </delete>
 
-    <select id="getFileByWhere" resultType="File" >
+    <select id="getFileByWhere" resultType="File">
         select * from file where 1=1
         <choose>
             <when test="fileCode !=null and fileCode !=''">
@@ -49,12 +49,30 @@
         </choose>
     </select>
 
-    <insert id="insertfile" >
+    <select id="queryArchivesById" resultType="File">
+        select * from file
+        <where>
+            <if test="fileCode!=null and fileCode!=''">
+                and fileCode like concat('%',#{fileCode},'%')
+            </if>
+            <if test="name!=null and name!=''">
+                and name like concat('%',#{name},'%')
+            </if>
+
+        </where>
+    </select>
+
+    <insert id="insertfile">
         insert into file
-        values (default ,#{fileCode} ,#{branchid},#{fileStatus},#{positionCode},#{positionName},#{name},#{sex},
-        #{email},#{phone},#{address},#{identityCard},#{hkAddress},#{politicCountenance},#{institution},
-        #{specialty},#{record},#{salary},#{bankName},#{bankId},#{socialInsuranceId},#{register},#{build},
-        null ,null,null ,null ,null )
+        values(default ,#{file.fileCode},#{file.organizationId},#{file.fileStatusId},#{file.positionCode},#{file.positionName},#{file.name},#{file.sex},
+        #{file.email},null,#{file.address},#{file.identityCard},#{file.hkAddress},#{file.politicCountenance},#{file.institution},
+        #{file.specialty},#{file.record},#{file.salary},#{file.bankName},#{file.bankId},#{file.socialInsuranceId},#{file.register},null,
+        null,null,null,null,null,null,null)
+    </insert>
+
+    <insert id="insertTask">
+         insert into task
+        values(default ,#{taskName},#{typeid},#{arrive})
     </insert>
 
 

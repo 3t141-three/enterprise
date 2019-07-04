@@ -2,6 +2,7 @@ package com.szxs.service.impl.personnel;
 
 import com.szxs.entity.Cultivate;
 import com.szxs.entity.File;
+import com.szxs.entity.Task;
 import com.szxs.mapper.personnel.fileMapper;
 import com.szxs.service.personnel.fileService;
 import org.springframework.stereotype.Service;
@@ -50,8 +51,19 @@ public class fileServiceImpl implements fileService {
     }
 
     @Override
+    public List<File> queryArchivesById(File file) {
+        return fileMapper.queryArchivesById(file);
+    }
+
+
+    @Override
     public int insertfile(File file) {
         return fileMapper.insertfile(file);
+    }
+
+    @Override
+    public int insertTask(Task task) {
+        return fileMapper.insertTask(task);
     }
 
     @Override

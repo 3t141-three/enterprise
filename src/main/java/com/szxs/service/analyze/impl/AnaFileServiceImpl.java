@@ -1,7 +1,7 @@
 package com.szxs.service.analyze.impl;
 
 import com.szxs.entity.File;
-import com.szxs.mapper.analyze.FileMapper;
+import com.szxs.mapper.analyze.ana_FileMapper;
 import com.szxs.service.analyze.AnaFileService;
 import org.springframework.stereotype.Service;
 

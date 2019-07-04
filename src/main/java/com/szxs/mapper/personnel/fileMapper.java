@@ -78,5 +78,12 @@ public interface fileMapper {
      * @param file
      * @return
      */
-    int insertfile(File file);
+    int insertfile(@Param("file") File file);
+
+    /**
+     * 新增档案同时新增任务
+     * @param task
+     * @return
+     */
+    int insertTask(Task task);
 }

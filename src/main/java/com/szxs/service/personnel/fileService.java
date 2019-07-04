@@ -2,6 +2,7 @@ package com.szxs.service.personnel;
 
 import com.szxs.entity.Cultivate;
 import com.szxs.entity.File;
+import com.szxs.entity.Task;
 
 import java.util.List;
 
@@ -56,7 +57,11 @@ public interface fileService {
 
 
 
-
+    /**
+     * 根据档案编码查询档案信息
+     * @return
+     */
+    List<File> queryArchivesById(File file);
 
     /**
      * 新增档案
@@ -64,6 +69,13 @@ public interface fileService {
      * @return
      */
     int insertfile(File file);
+
+    /**
+     * 新增档案同时新增任务
+     * @param task
+     * @return
+     */
+    int insertTask(Task task);
 
     void dsada(Integer id);
 }

@@ -11,16 +11,10 @@ public class Task {
   private String taskName;
   private Integer typeid;
   @DateTimeFormat(pattern = "yyyy-MM-dd")
-  private Date arrive;
-private Tasktype tasktype;
+  private String  arrive;
 
-  public Tasktype getTasktype() {
-    return tasktype;
-  }
 
-  public void setTasktype(Tasktype tasktype) {
-    this.tasktype = tasktype;
-  }
+
 
   public Integer getId() {
     return id;
@@ -46,11 +40,11 @@ private Tasktype tasktype;
     this.typeid = typeid;
   }
 
-  public Date getArrive() {
+  public String getArrive() {
     return arrive;
   }
 
-  public void setArrive(Date arrive) {
+  public void setArrive(String arrive) {
     this.arrive = arrive;
   }
 }
