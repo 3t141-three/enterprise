@@ -39,6 +39,8 @@ public class backLog {
     public String ByIndex(HttpSession session,Model model) {
         Object loginsession = session.getAttribute("loginsession");
         model.addAttribute("logins", loginsession);
+
+
         return "ana-index";
     }
 

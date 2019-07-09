@@ -42,8 +42,10 @@
                 <span id="mytime"></span>
             </li>
             <li class="layui-nav-item">
+
                 <a href="javascript:;">
-                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+
+                    <img th:src="@{/images/face/{filename}(filename=${logins.portrait})}" class="layui-nav-img">
                     <span th:text="${logins.username}"></span>
                 </a>
                 <!--<dl class="layui-nav-child">-->
@@ -81,8 +83,8 @@
                 <li class="layui-nav-item">
                     <a class="" href="javascript:;">薪酬管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">薪酬标准管理</a></dd>
-                        <dd><a href="javascript:;">薪酬发放管理</a></dd>
+                        <dd><a href="showListS">薪酬标准管理</a></dd>
+                        <dd><a href="queryAll;">薪酬发放管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -94,8 +96,8 @@
                 <li class="layui-nav-item">
                     <a class="" href="javascript:;">招聘管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">职位发布管理</a></dd>
-                        <dd><a href="javascript:;">简历管理</a></dd>
+                        <dd><a href="rec-JobManage">职位发布管理</a></dd>
+                        <dd><a href="resumeManagement">简历管理</a></dd>
                         <dd><a href="javascript:;">面试管理</a></dd>
                         <dd><a href="javascript:;">录用管理</a></dd>
                     </dl>
@@ -103,9 +105,7 @@
                 <li class="layui-nav-item">
                     <a class="" href="javascript:;">培训管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">培训计划</a></dd>
-                        <dd><a href="javascript:;">培训复核</a></dd>
-                        <dd><a href="javascript:;">培训考核与反馈</a></dd>
+                        <dd><a href="showCultivates">培训计划</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">

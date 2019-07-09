@@ -269,7 +269,7 @@ public class filecontroller {
         String name = file.getName() + "的档案登记录入审核";
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
-        ;
+
 
         task.setArrive(dateFormat.format(date));
         task.setTaskName(name);

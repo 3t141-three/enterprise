@@ -1,16 +1,22 @@
 package com.szxs.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Cultivate {
 
+
   private Integer id;
   private String cultivateName;
   private String cultivateTeacher;
+  @DateTimeFormat(pattern="yyyy-MM-dd")
   private Date beginTime;
+  @DateTimeFormat(pattern="yyyy-MM-dd")
   private Date finish;
   private String purpose;
+  private String result;
   private String participant;
   private String introduce;
   private String means;

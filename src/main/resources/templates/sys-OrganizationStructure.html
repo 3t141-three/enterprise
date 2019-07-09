@@ -12,55 +12,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>企业人力资源系统</title>
     <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/bisele.css">
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script src="layer.js"></script>
     <script type="text/javascript">
         $(function () {
+            $("input").attr('autocomplete', 'off');
 
-
-
-
-            $("#userPassword").mouseout(function () {
-                var userPassword = $("#userPassword").val();
-                var pass = $("#pass").val();
-
-                if(userPassword!=pass){
-                    $("#userPassword2").html("旧密码错误")
-                }else if(userPassword.length<6){
-                    $("#userPassword2").html("旧密码长度不能小于6位数")
-                }else{
-                    $("#userPassword2").html("")
-
-                }
-
-            });
-
-
-            $("#password").mouseout(function () {
-                var password = $("#password").val();
-                if(password.length<6){
-                    $("#password2").html("新密码长度不能小于6位数")
-                }else{
-                    $("#password2").html("")
-                }
+            //点击清空输入框
+            $("#u26").click(function () {
+                $("#u212").val("")
+                $("#u213").val("")
+                $("#u214").val("")
+                $("#u215").val("")
+                $("#u216").val("")
+                $("#u217").val("")
+                $("#u218").val("")
+            })
 
         });
 
-            $("#ruserPassword").mouseout(function () {
-                var ruserPassword = $("#ruserPassword").val();
-                var password = $("#password").val();
-                if(ruserPassword.length<6){
-                    $("#ruserPassword2").html("确认密码长度不能小于6位数")
-                }else  if(ruserPassword != password) {
-                    $("#ruserPassword2").html("两次密码不一致")
-                }else{
-                    $("#ruserPassword2").html("")
-                }
 
-
-        });
-        });
     </script>
+
     <script type="text/javascript">
         function showTime() {
             nowtime = new Date();
@@ -73,44 +46,11 @@
         setInterval("showTime()", 1000);
 
     </script>
-    <script src="layer.js"></script>
-    <script>
-        layui.use('layer', function(){
-            var layer = layui.layer;
 
-            var ti = $("#u2").html();
-
-            if(ti!=null){
-                layer.msg(ti);
-            }
-
-
-
-        });
-    </script>
-    <style>
-        body {
-            color: rgb(59, 58, 62);
-        }
-
-        input {
-            width: 400px;
-            height: 50px;
-            font-size: 18px;
-            size: 30px;
-            background: transparent;
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #ffffff;
-            color: rgb(59, 58, 62);
-            margin: 20px 0px 20px 0px;
-            text-align: center;
-        }
-
-    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
+
     <div class="layui-header">
         <a href="ByIndex">
             <div class="layui-logo">企业人力资源系统</div>
@@ -134,17 +74,22 @@
             <li class="layui-nav-item">
                 <span id="mytime"></span>
             </li>
+            <span>
             <li class="layui-nav-item">
-                <a href="javascript:;">
+
+                     <a href="javascript:;">
                     <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
                     <span th:text="${loginsessions.username}"></span>
                 </a>
+
+
                 <!--<dl class="layui-nav-child">-->
                 <!--<dd><a href="">基本资料</a></dd>-->
                 <!--<dd><a href="">安全设置</a></dd>-->
                 <!--</dl>-->
             </li>
             <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
+                </span>
         </ul>
     </div>
 
@@ -161,11 +106,11 @@
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">系统设置</a>
-                    <dl class="layui-nav-child">
+                    <dl class="layui-nav-child layui-nav-itemed">
                         <dd><a href="javascript:;">用户管理</a></dd>
                         <dd><a href="javascript:;">职位管理</a></dd>
                         <dd><a href="javascript:;">职称管理</a></dd>
-                        <dd><a href="javascript:;">组织结构设置</a></dd>
+                        <dd><a href="Organization">组织结构设置</a></dd>
                         <dd><a href="javascript:;">题库管理设置</a></dd>
                         <dd><a href="javascript:;">公共属性管理</a></dd>
                         <dd><a href="javascript:;">薪酬项目管理</a></dd>
@@ -193,10 +138,12 @@
                         <dd><a href="javascript:;">录用管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item ">
+                <li class="layui-nav-item">
                     <a class="" href="javascript:;">培训管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="showCultivates">培训计划</a></dd>
+                        <dd><a href="javascript:;">培训计划</a></dd>
+                        <dd><a href="javascript:;">培训复核</a></dd>
+                        <dd><a href="javascript:;">培训考核与反馈</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -216,48 +163,59 @@
     <!--内容主体部分-->
     <div class="layui-body" style="background-image: url('/images/face/0002.gif')">
 
+
         <div id="u18" class="ax_文本" style="margin: 10px 0px 0px 70px;font-size: 20px">
             <!-- Unnamed () -->
             <div id="u19" class="text">
-                <p><span>我的工作平台</span><span>&nbsp;</span><span>&gt;&gt;</span><span>&nbsp;</span><span>修改密码</span></p>
+                <p style="margin-top: 20px;">
+                    <span>系统设置</span><span>&nbsp;</span><span>&gt;&gt;</span><span>&nbsp;</span><span>组织结构设置</span></p>
             </div>
-
 
         </div>
-
-        <form action="changePassword2" style="text-align: center" method="post">
-
-            <span th:if="${TiShi}!=null">
-            <span th:text="${TiShi}" id="u2" style="color: #0C0C0C;font-size: 30px;display: none"></span>
-            </span>
+        <span id="u221" th:if="${ti}!=null" th:text="${ti}" style="display: none"></span>
+        <form id="u17" action="OrganizationAdd" method="post" style="margin-left: 70px;text-align: center">
             <div>
-                <input style="display: none;" th:value="${loginsessions.id}" name="id" id="id">
-                <input style="display: none;" th:value="${loginsessions.password}" id="pass">
                 <div>
-                    <input type="password"  id="userPassword" placeholder="请输入旧密码" align="right">
-                    <br>
-                    <span id="userPassword2" style="color: red"></span>
+                    <span>组织编码：</span>
+                    <input id="u212" name="code" readonly="readonly" th:value="${bBD}">
+                    <span>组织简称：</span>
+                    <input id="u213" name="call">
+                </div>
+                <br/>
+                <div>
+                    <span>组织全称：</span>
+                    <input id="u214" name="organizationName">
+                    <span>所属组织：</span>
+                    <input id="u215" name="higherLevel" readonly="readonly" th:value="${bBC}">
+                </div>
+                <br/>
+                <div>
+                    <span style="">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span>
+                    <textarea id="u216" style="width: 525px;resize:none;vertical-align:top;margin-bottom: 20px;"
+                              name="address" th:text="${bBE}"></textarea>
                 </div>
                 <div>
-                    <input type="password" name="password" id="password" placeholder="请输入新密码" align="right">
-                    <br>
-                    <span id="password2" style="color: red"></span>
+                    <span style="">简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介：</span>
+                    <textarea id="u217"
+                              style="width: 525px;height:100px; resize:none;vertical-align:top;margin-bottom: 20px;"
+                              name="briefIntroduction"></textarea>
                 </div>
                 <div>
-                    <input type="password"  id="ruserPassword" placeholder="请确认新密码" align="right">
-                    <br>
-                    <span id="ruserPassword2" style="color: red"></span>
+                    <span style="">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</span>
+                    <textarea id="u218" style="width: 525px;height:100px; resize:none;vertical-align:top"
+                              name="remarks"></textarea>
                 </div>
+
+
+                <div style="margin-left: 100px;margin-top: 30px;text-align: center">
+                    <button  id="u27" type="submit" class="layui-btn layui-btn-primary button1">保存</button>
+                    <button id="u26" type="button" class="layui-btn layui-btn-primary button1">清空</button>
+                </div>
+
             </div>
 
 
-            <button style="margin-top: 30px;width: 200px" type="submit"
-                    class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal uu4">修改密码
-            </button>
-
         </form>
-
-
 
 
     </div>
@@ -289,8 +247,60 @@
             , calendar: true
         });
     });
-</script>
+    layui.use('layer', function () {
+        var layer = layui.layer;
 
+        var ti = $("#u221").html();
+        if (ti != null) {
+            layer.msg(ti);
+        }
+
+    });
+</script>
+<script>
+
+</script>
+<style>
+
+    #u17 {
+        margin: 20px 0px 0px 20px;
+    }
+
+
+    body {
+        color: rgb(59, 58, 62);
+    }
+
+    input {
+        font-size: 18px;
+        size: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #ffffff;
+        color: #070606;
+    }
+
+    select {
+        background: none;
+        border-radius: 30px;
+        border: 1px solid #9194a7;
+        color: rgb(59, 58, 62);
+        text-indent: 10px;
+        line-height: 26px;
+        font-size: 12px;
+    }
+
+    textarea {
+        border: 0;
+        background-color: transparent;
+        color: #070606;
+        height: auto;
+        border: 1px solid #ffffff;
+    }
+
+
+</style>
 
 </body>
 </html>
