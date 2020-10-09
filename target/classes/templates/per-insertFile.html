@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业人力资源系统</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/bisele.css">
+    <style rel="stylesheet" href="layui.js"></style>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        function showTime() {
+            nowtime = new Date();
+            year = nowtime.getFullYear();
+            month = nowtime.getMonth() + 1;
+            date = nowtime.getDate();
+            document.getElementById("mytime").innerText = year + "年" + month + "月" + date + " " + nowtime.toLocaleTimeString();
+        }
+
+        setInterval("showTime()", 1000);
+
+    </script>
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="ByIndex">
+            <div class="layui-logo">企业人力资源系统</div>
+        </a>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <!--<ul class="layui-nav layui-layout-left">-->
+        <!--<li class="layui-nav-item"><a href="">控制台</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+        <!--<li class="layui-nav-item">-->
+        <!--<a href="javascript:;">其它系统</a>-->
+        <!--<dl class="layui-nav-child">-->
+        <!--<dd><a href="">邮件管理</a></dd>-->
+        <!--<dd><a href="">消息管理</a></dd>-->
+        <!--<dd><a href="">授权管理</a></dd>-->
+        <!--</dl>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <span >
+            <li class="layui-nav-item">
+
+                     <a href="javascript:;">
+                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+                    <span  th:text="${loginsessions.username}"></span>
+                </a>
+
+
+
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="">基本资料</a></dd>-->
+                <!--<dd><a href="">安全设置</a></dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
+                </span>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item ">
+                    <a class="" href="javascript:;">我的工作台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="bocklog">待办列表</a></dd>
+                        <dd><a href="changePassword">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户管理</a></dd>
+                        <dd><a href="javascript:;">职位管理</a></dd>
+                        <dd><a href="javascript:;">职称管理</a></dd>
+                        <dd><a href="javascript:;">组织结构设置</a></dd>
+                        <dd><a href="javascript:;">题库管理设置</a></dd>
+                        <dd><a href="javascript:;">公共属性管理</a></dd>
+                        <dd><a href="javascript:;">薪酬项目管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">薪酬管理</a>
+                    <dl class="layui-nav-child ">
+                        <dd><a href="showListS">薪酬标准管理</a></dd>
+                        <dd><a href="queryAll;">薪酬发放管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">人事管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showList">人事档案管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">招聘管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="rec-JobManage">职位发布管理</a></dd>
+                        <dd><a href="resumeManagement">简历管理</a></dd>
+                        <dd><a href="javascript:;">面试管理</a></dd>
+                        <dd><a href="javascript:;">录用管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item ">
+                    <a class="" href="javascript:;">培训管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showCultivates">培训计划</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">数据分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="ana-Details">职员明细表</a></dd>
+                        <dd><a href="ana-SntheticData">职员数据综合报表</a></dd>
+                        <dd><a href="ana-PostChangesStatistics">职员异动情况统计分析</a></dd>
+                        <dd><a href="ana-ReserveTalent">储备人才统计表</a></dd>
+                        <dd><a href="ana-Architecture">公司各体系结构分析</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--主体部分-->
+    <div class="layui-body" style="background-image: url('/images/face/0002.gif')" >
+
+        <div id="u18" class="ax_文本" style="margin: 10px 0px 50px 70px;font-size: 20px">
+            <!-- Unnamed () -->
+            <div id="u19" class="text">
+                <p><span>人事管理</span><span>&nbsp;</span><span>&gt;&gt;</span><span>&nbsp;</span><span><a href="showList">人事档案管理</a></span><span> &gt;&gt; 档案登记</span>
+                </p>
+            </div>
+
+        </div>
+
+        <form class="layui-form" action="/insertfile" method="post">
+            <input value="1" name="typeid" style="display: none">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">所属部门</label>
+                    <div class="layui-input-inline">
+                        <input type="tel" name="organizationId"  value="1" autocomplete="off" >
+                    </div>
+                </div>
+                <!--<div style="position:relative;float: right;padding-right: 22rem">-->
+                    <!--<img src="../static/images/face/u376.png" alt="" />-->
+                    <!--<div style="position:absolute;z-indent:2;left:0;top:0;">-->
+                        <!--<p><span>照片</span></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <label style="padding-left: 34px; padding-right: 13px"> 档案状态 </label>
+                <select name="fileStatusId" size="1"  style="width: 11.8rem;height: 30px;display: inline-block">
+                    <option>-请选择-</option>
+                    <option value="1" selected = "selected">试用期</option>
+                    <option value="2">正式员工</option>
+                    <option value="3">离职</option>
+                    <option value="4">已删除</option>
+                    <option value="5">实习员工</option>
+                </select>
+                <br/>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">职位名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="positionName" value="技术总监"  autocomplete="off" >
+                        <!--财务主管  技术培训师-->
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">职位编码</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="positionCode"  value="1"  autocomplete="off" >
+                    </div>
+                </div><br/>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">姓名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="name"  value="张三"  autocomplete="off" >
+                    </div>
+                </div>
+                <label style="padding-left: 3rem; padding-right: 28px;"> 性别 </label>
+                <select name="sex"  style="width:11.8rem;height: 30px;display: inline-block">
+                    <option>-请选择-</option>
+                    <option value="1"selected = "selected">男</option>
+                    <option value="2">女</option>
+                </select><br/>
+                <div class="layui-inline" style="padding-top: 10px">
+                    <label class="layui-form-label">Email</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="email" lay-verify="email" value="121212@fafas.com"  autocomplete="off" >
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">住址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="address" lay-verify="identity" value="撒大苏打萨达萨达撒大苏打萨达萨达"  style="width: 52.5rem" autocomplete="off" >
+                    </div>
+                </div><br/>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">身份证号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="identityCard" value="429006200011134218" autocomplete="off" >
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">户口所在地</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="hkAddress" value="撒大苏打萨达萨达"  autocomplete="off" >
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">政治面貌</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="politicCountenance"  value="撒大苏打萨达萨达"  autocomplete="off" >
+                    </div>
+                </div><br/>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">毕业院校</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="institution"  value="撒大苏打萨达萨达" autocomplete="off" >
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">专业</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="specialty"  value="撒大苏打萨达萨达"  autocomplete="off" >
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">学历</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="record" value="撒大苏打萨达萨达"  autocomplete="off" >
+                    </div>
+                </div><br/>
+                <label style="    padding-left: 41px;padding-right: 10px;">薪酬标准  </label>
+                <select name="salary" style="width: 8.8rem;height: 30px;display: inline-block">
+                    <option>-请选择-</option>
+                    <option value="1" selected = "selected">低级工程师</option>
+                    <option value="2">中级工程师</option>
+                    <option value="3">高级工程师</option>
+                </select>
+                <div class="layui-inline"style="padding-top: 10px  ;padding-left: 4.2rem;">
+                    <label class="layui-form-label">开户行</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="bankName"  value="撒大苏打萨达萨达" autocomplete="off" >
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">银行卡号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="bankId"  value="6021152363254896325" autocomplete="off" >
+                    </div>
+
+                </div><br/>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">社保卡号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="socialInsuranceId" value="149161495652" autocomplete="off" >
+                    </div>
+                </div>
+                <div class="layui-inline"style="padding-top: 10px">
+                    <label class="layui-form-label">登记人</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="register" value="撒大苏打萨达萨达" autocomplete="off" >
+                    </div>
+                </div><br/>
+                <div class="layui-form-item"style="padding-top: 10px">
+                    <label class="layui-form-label">个人履历</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="biographicalNotes"value="撒大苏打萨达萨达"  autocomplete="off"   style="height: 95px; width: 52.5rem;">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">家庭信息</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="family" value="撒大苏打萨达萨达"  autocomplete="off"   style="height: 75px; width: 52.5rem;">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="remarks" value="撒大苏打萨达萨达"  autocomplete="off"   style="height: 75px; width: 52.5rem;">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">简历附件</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="way" value="撒大苏打萨达萨达" autocomplete="off"   style="height: 75px; width: 52.5rem;">
+                    </div>
+                </div>
+                <div class="but" style="padding-left: 40%">
+                    <button type="submit" class="layui-btn layui-btn-radius">保存</button>
+                    <a href="/showList">  <button type="button" class="layui-btn layui-btn-radius">返回</button></a>
+                </div>
+            </div>
+        </form>
+</div>
+
+<div class="layui-footer">
+    <!-- 底部固定区域 -->
+
+
+
+    © layui.com - 底部固定区域
+</div>
+</div>
+<script src="layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+<script src="/static/build/layui.js"></script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , calendar: true
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业人力资源系统</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/bisele.css">
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input").attr('autocomplete', 'off');
+        })
+
+
+        // $(function () {
+        //
+        //
+        //     $(".button1").click(function () {
+        //         var taskName = $("#u21").val();
+        //         var typeid = null;
+        //         var select = document.getElementById("OrganizationId")
+        //
+        //         //1.如何获得当前选中的值？：
+        //         var value = select.value;
+        //
+        //         //2.如何获得该下拉框所有的option的节点对象
+        //         var options = select.options;
+        //         //注意：得到的options是一个对象数组
+        //
+        //         //3.如何获得第几个option的value值?比如我要获取第一option的value,可以这样：
+        //         var value1 = options[0].value;
+        //         //4.如何获得第几个option的文本内容?比如我要获取第一option的文本,可以这样：
+        //         var text1 = options[0].text;
+        //
+        //         //5.如何获得当前选中的option的索引？
+        //         var index = select.selectedIndex;
+        //         //6.如何获得当前选中的option的文本内容？
+        //         //从第2个问题，我们已经获得所有的option的对象数组options了
+        //         //又从第5个问题，我们获取到了当前选中的option的索引值
+        //         //所以我们只要同options[index]下标的方法得到当前选中的option了
+        //         var selectedText = options[index].text;
+        //         switch (selectedText) {
+        //             case "人事档案录入审核":
+        //                 typeid = "1";
+        //                 break;
+        //             case "人事档案变更":
+        //                 typeid = "2";
+        //                 break;
+        //             case "职位审核":
+        //                 typeid = "3";
+        //                 break;
+        //             case "招聘录用审核":
+        //                 typeid = "4";
+        //                 break;
+        //             case "培训计划审核":
+        //                 typeid = "5";
+        //                 break;
+        //             case "薪资标准审核":
+        //                 typeid = "6";
+        //                 break;
+        //             case "薪资标准变更":
+        //                 typeid = "7";
+        //                 break;
+        //             case "薪资发放审核":
+        //                 typeid = "8";
+        //                 break;
+        //
+        //         }
+        //
+        //         getProucts(taskName,typeid);
+        //     })
+        //
+        //
+        //     function getProucts(taskName,typeid) {
+        //
+        //         jQuery.getJSON("bocklog2", {"taskName": taskName, "typeid": typeid,"arrive":arrive}, function (isonData) {
+        //
+        //
+        //             for (var i = 0;i < isonData.length; i++) {
+        //
+        //                 ahref+= ' <tr>\n' +
+        //                     '                <td >'+isonData[i].taskName+'</td>\n' +
+        //                     '                <td >'+isonData[i].arrive+'</td>\n' +
+        //                     '                <td >'+isonData[i].typeid+'</td>\n' +
+        //                     '                <td><a href="bocklogByTo">\n' +
+        //                     '                    <button type="button" class="layui-btn layui-btn-normal" id="u26">处理</button>\n' +
+        //                     '                </a>\n' +
+        //                     '                    <button type="button" class="layui-btn layui-btn-normal" id="u27">明细</button>\n' +
+        //                     '                </td>\n' +
+        //                     '            </tr>';
+        //
+        //             }
+        //
+        //
+        //             jQuery('u44').append(ahref);
+        //         });
+        //     }
+        //
+        // });
+    </script>
+    <script type="text/javascript">
+        function showTime() {
+            nowtime = new Date();
+            year = nowtime.getFullYear();
+            month = nowtime.getMonth() + 1;
+            date = nowtime.getDate();
+            document.getElementById("mytime").innerText = year + "年" + month + "月" + date + " " + nowtime.toLocaleTimeString();
+        }
+
+        setInterval("showTime()", 1000);
+
+    </script>
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-header">
+        <a href="ByIndex">
+            <div class="layui-logo">企业人力资源系统</div>
+        </a>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <!--<ul class="layui-nav layui-layout-left">-->
+        <!--<li class="layui-nav-item"><a href="">控制台</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+        <!--<li class="layui-nav-item">-->
+        <!--<a href="javascript:;">其它系统</a  >-->
+        <!--<dl class="layui-nav-child">-->
+        <!--<dd><a href="">邮件管理</a></dd>-->
+        <!--<dd><a href="">消息管理</a></dd>-->
+        <!--<dd><a href="">授权管理</a></dd>-->
+        <!--</dl>-->
+        <!--</li>-->
+        <!--</ul>-->
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <span >
+            <li class="layui-nav-item">
+
+                     <a href="javascript:;">
+                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+                    <span  th:text="${loginsessions.username}"></span>
+                </a>
+
+
+
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="">基本资料</a></dd>-->
+                <!--<dd><a href="">安全设置</a></dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
+                </span>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">我的工作台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="bocklog">待办列表</a></dd>
+                        <dd><a href="changePassword">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户管理</a></dd>
+                        <dd><a href="javascript:;">职位管理</a></dd>
+                        <dd><a href="javascript:;">职称管理</a></dd>
+                        <dd><a href="javascript:;">组织结构设置</a></dd>
+                        <dd><a href="javascript:;">题库管理设置</a></dd>
+                        <dd><a href="javascript:;">公共属性管理</a></dd>
+                        <dd><a href="javascript:;">薪酬项目管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">薪酬管理</a>
+                    <dl class="layui-nav-child ">
+                        <dd><a href="showListS">薪酬标准管理</a></dd>
+                        <dd><a href="queryAll;">薪酬发放管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">人事管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showList">人事档案管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">招聘管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="rec-JobManage">职位发布管理</a></dd>
+                        <dd><a href="resumeManagement">简历管理</a></dd>
+                        <dd><a href="javascript:;">面试管理</a></dd>
+                        <dd><a href="javascript:;">录用管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item ">
+                    <a class="" href="javascript:;">培训管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showCultivates">培训计划</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">数据分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="ana-Details">职员明细表</a></dd>
+                        <dd><a href="ana-SntheticData">职员数据综合报表</a></dd>
+                        <dd><a href="ana-PostChangesStatistics">职员异动情况统计分析</a></dd>
+                        <dd><a href="ana-ReserveTalent">储备人才统计表</a></dd>
+                        <dd><a href="ana-Architecture">公司各体系结构分析</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--内容主体部分-->
+    <div class="layui-body" style="background-image: url('/images/face/0002.gif')">
+
+
+        <div id="u18" class="ax_文本" style="margin: 10px 0px 0px 70px;font-size: 20px">
+            <!-- Unnamed () -->
+            <div id="u19" class="text">
+                <p><span>我的工作平台</span><span>&nbsp;</span><span>&gt;&gt;</span><span>&nbsp;</span><span>待办列表</span></p>
+            </div>
+
+        </div>
+
+        <form id="u17" action="bocklog" method="post">
+            <div style="display: inline;margin: 0px 50px 0px 50px;">
+                <span id="u20">任务名称：</span>
+                <input id="u21" name="taskName">
+            </div>
+            <div style="display: inline;margin: 0px 50px 0px 50px;">
+                <span id="u22">待办分类：</span>
+                <select id="OrganizationId" lay-verify="required" name="OrganizationId" >
+                    <option value="">--请选择--</option>
+                    <option id="u33" th:each="tl:${tasktypesList}">
+                        <span th:text="${tl.type}" th:value="${tl.id}">北京</span>
+                    </option>
+
+                </select>
+            </div>
+
+
+            <!--<div style="display: inline;margin: 0px 50px 0px 50px;" >-->
+            <!--<label id="u24">到达日期：</label>-->
+            <!--<div class="layui-inline"> &lt;!&ndash; 注意：这一层元素并不是必须的 &ndash;&gt;-->
+            <!--<input type="text" class="layui-input" id="test1" name="arrive">-->
+            <!--</div>-->
+            <!--</div>-->
+
+
+            <button type="submit" class="layui-btn layui-btn-primary button1">查询</button>
+
+        </form>
+
+
+        <table class="layui-table" id="u25" >
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>待办类型</th>
+                <th>达到日期</th>
+                <th>待办任务名称</th>
+                <th style="width: 300px">操作</th>
+            </tr>
+            </thead>
+            <tbody th:each="tl:${taskList}">
+            <tr id="u44">
+                <td th:switch="${tl.typeid}">
+                    <span th:case="'1'">人事档案录入审核</span>
+                    <span th:case="'2'">人事档案变更</span>
+                    <span th:case="'3'">职位审核</span>
+                    <span th:case="'4'">招聘录用审核</span>
+                    <span th:case="'5'">培训计划审核</span>
+                    <span th:case="'6'">薪资标准审核</span>
+                    <span th:case="'7'">薪资标准变更</span>
+                    <span th:case="'8'">薪资发放审核</span>
+                </td>
+                <td th:text="${#dates.format(tl.arrive,'yyyy-MM-dd ')}">2016-11-29</td>
+                <td th:text="${tl.taskName}">人生就像是一场修行生就像是一场修生就像是一场修生就像是一场修生就像是一场修</td>
+                <td><a href="bocklogByTo">
+                    <button type="button" class="layui-btn layui-btn-normal" id="u26">处理</button>
+                </a>
+                    <button type="button" class="layui-btn layui-btn-normal" id="u27">明细</button>
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+
+
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+<script src="/static/build/layui.js"></script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , calendar: true
+        });
+    });
+</script>
+<style>
+
+    #u17 {
+        margin: 20px 0px 0px 20px;
+    }
+
+    #u20, #u22, #u24 {
+        font-size: 20px;
+    }
+
+    #u21, #OrganizationId, #u25 {
+        width: 250px;
+        height: 30px;
+
+    }
+
+
+    #u25 {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    body {
+        color: rgb(59, 58, 62);
+    }
+
+    input {
+        font-size: 18px;
+        size: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #ffffff;
+        color: rgb(119, 118, 123);
+    }
+
+    select{
+        background: none;
+        border-radius: 30px;
+        border: 1px solid #9194a7;
+        color: rgb(59, 58, 62);
+        text-indent: 10px;
+        line-height: 26px;
+        font-size: 12px;"
+    }
+</style>
+
+</body>
+</html>
+</body>
+</html>

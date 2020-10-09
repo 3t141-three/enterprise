@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业人力资源系统</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        function showTime(){
+            nowtime=new Date();
+            year=nowtime.getFullYear();
+            month=nowtime.getMonth()+1;
+            date=nowtime.getDate();
+            document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+        }
+
+        setInterval("showTime()",1000);
+
+    </script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="ByIndex"><div class="layui-logo" >企业人力资源系统</div></a>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <!--<ul class="layui-nav layui-layout-left">-->
+                <!--<li class="layui-nav-item"><a href="">控制台</a></li>-->
+                <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+                <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+                <!--<li class="layui-nav-item">-->
+                    <!--<a href="javascript:;">其它系统</a>-->
+                    <!--<dl class="layui-nav-child">-->
+                        <!--<dd><a href="">邮件管理</a></dd>-->
+                        <!--<dd><a href="">消息管理</a></dd>-->
+                    <!--<dd><a href="">授权管理</a></dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <li class="layui-nav-item">
+
+                <a href="javascript:;">
+
+                    <img th:src="@{/images/face/{filename}(filename=${logins.portrait})}" class="layui-nav-img">
+                    <span th:text="${logins.username}"></span>
+                </a>
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="">基本资料</a></dd>-->
+                <!--<dd><a href="">安全设置</a></dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">我的工作台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="bocklog">待办列表</a></dd>
+                        <dd><a href="changePassword">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户管理</a></dd>
+                        <dd><a href="javascript:;">职位管理</a></dd>
+                        <dd><a href="javascript:;">职称管理</a></dd>
+                        <dd><a href="Organization">组织结构设置</a></dd>
+                        <dd><a href="javascript:;">题库管理设置</a></dd>
+                        <dd><a href="javascript:;">公共属性管理</a></dd>
+                        <dd><a href="javascript:;">薪酬项目管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">薪酬管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showListS">薪酬标准管理</a></dd>
+                        <dd><a href="queryAll;">薪酬发放管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">人事管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showList">人事档案管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">招聘管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="rec-JobManage">职位发布管理</a></dd>
+                        <dd><a href="resumeManagement">简历管理</a></dd>
+                        <dd><a href="javascript:;">面试管理</a></dd>
+                        <dd><a href="javascript:;">录用管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">培训管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showCultivates">培训计划</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">数据分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="ana-Details">职员明细表</a></dd>
+                        <dd><a href="ana-SntheticData">职员数据综合报表</a></dd>
+                        <dd><a href="ana-PostChangesStatistics">职员异动情况统计分析</a></dd>
+                        <dd><a href="ana-ReserveTalent">储备人才统计表</a></dd>
+                        <dd><a href="ana-Architecture">公司各体系结构分析</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body" style="background-image: url('/images/face/0002.gif')">
+    <!-- 内容主体区域 -->
+
+</div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+
+
+
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>

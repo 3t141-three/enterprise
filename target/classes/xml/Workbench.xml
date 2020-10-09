@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szxs.mapper.workbench.WorkbenchMapper">
+    <!--登录-->
+    <select id="login" resultType="com.szxs.entity.User">
+        select * from user
+        <where>
+            <if test="code != null and code!=''">
+                and code = #{code}
+            </if>
+            <if test="password != null and password!=''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+    <!--查询所有分类-->
+    <select id="queryTasktype" resultType="com.szxs.entity.Tasktype">
+          select * from tasktype
+    </select>
+
+    <!--查询所有任务-->
+    <select id="queryTask" resultType="com.szxs.entity.Task">
+        select * from  task
+        <where>
+            <if test='taskName!=null and taskName!=""'>
+               and taskName like concat('%',#{taskName},'%')
+            </if>
+            <if test="typeid>0">
+                and typeid = #{typeid}
+            </if>
+            <if test="arrive!=null">
+                and arrive =#{arrive}
+            </if>
+        </where>
+
+    </select>
+
+
+    <!--<resultMap type="com.szxs.entity.Tasktype" id="personBean">-->
+    <!--<id column="id" property="id"/>-->
+    <!--<result column="type" property="type"/>-->
+
+    <!--&lt;!&ndash; 一对多的关系 用collection&ndash;&gt;-->
+    <!--&lt;!&ndash; property: 指的是集合属性的值, ofType：指的是集合中元素的类型 &ndash;&gt;-->
+    <!--<collection property="taskList" ofType="com.szxs.entity.Task">-->
+    <!--<id column="id" property="id"/>-->
+    <!--<result column="taskName" property="taskName"/>-->
+    <!--<result column="typeid" property="typeid"/>-->
+    <!--<result column="arrive" property="arrive"/>-->
+    <!--</collection>-->
+    <!--</resultMap>-->
+
+    <!--&lt;!&ndash; 根据id查询Person, 关联将Orders查询出来 &ndash;&gt;-->
+    <!--<select id="selectPersonById" parameterType="string" resultMap="personBean">-->
+    <!--select p.*, o.* from person p, orders o where p.personId  = o.pid and p.personId = #{id}-->
+
+    <!--</select>-->
+
+    <!--修改用户密码-->
+    <insert id="updateUser">
+
+        update user
+        <set>
+            <if test="password != null and password != '' ">
+                password = #{password},
+            </if>
+        </set>
+
+        where id = #{id}
+    </insert>
+
+</mapper>

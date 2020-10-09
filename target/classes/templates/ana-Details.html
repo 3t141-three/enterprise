@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>数据分析-职员明细表</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/bisele.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="ByIndex">
+            <div class="layui-logo">企业人力资源系统</div>
+        </a>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <!--<ul class="layui-nav layui-layout-left">-->
+        <!--<li class="layui-nav-item"><a href="">控制台</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+        <!--<li class="layui-nav-item">-->
+        <!--<a href="javascript:;">其它系统</a  >-->
+        <!--<dl class="layui-nav-child">-->
+        <!--<dd><a href="">邮件管理</a></dd>-->
+        <!--<dd><a href="">消息管理</a></dd>-->
+        <!--<dd><a href="">授权管理</a></dd>-->
+        <!--</dl>-->
+        <!--</li>-->
+        <!--</ul>-->
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <span >
+            <li class="layui-nav-item">
+
+                     <a href="javascript:;">
+                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+                    <span  th:text="${loginsessions.username}"></span>
+                </a>
+
+
+
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="">基本资料</a></dd>-->
+                <!--<dd><a href="">安全设置</a></dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
+                </span>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">我的工作台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="bocklog">待办列表</a></dd>
+                        <dd><a href="changePassword">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户管理</a></dd>
+                        <dd><a href="javascript:;">职位管理</a></dd>
+                        <dd><a href="javascript:;">职称管理</a></dd>
+                        <dd><a href="Organization">组织结构设置</a></dd>
+                        <dd><a href="javascript:;">题库管理设置</a></dd>
+                        <dd><a href="javascript:;">公共属性管理</a></dd>
+                        <dd><a href="javascript:;">薪酬项目管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">薪酬管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showListS">薪酬标准管理</a></dd>
+                        <dd><a href="queryAll;">薪酬发放管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">人事管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showList">人事档案管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">招聘管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="rec-JobManage">职位发布管理</a></dd>
+                        <dd><a href="resumeManagement">简历管理</a></dd>
+                        <dd><a href="javascript:;">面试管理</a></dd>
+                        <dd><a href="javascript:;">录用管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">培训管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showCultivates">培训计划</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">数据分析</a>
+                    <dl class="layui-nav-child  ">
+                        <dd><a href="ana-Details">职员明细表</a></dd>
+                        <dd><a href="ana-SntheticData">职员数据综合报表</a></dd>
+                        <dd><a href="ana-PostChangesStatistics">职员异动情况统计分析</a></dd>
+                        <dd><a href="ana-ReserveTalent">储备人才统计表</a></dd>
+                        <dd><a href="ana-Architecture">公司各体系结构分析</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--内容主体开始-->
+    <div class="layui-body" style="font-size: 20px;background-image: url('/images/face/0002.gif')">
+        <div style="margin: 20px auto 40px 20px">
+            <a href="ana-Details">数据分析</a> >> <a href="ana-Details">职员明细表</a>
+
+        </div>
+        <form action="/ana-Details" method="post">
+            <!--部门下拉框-->
+            <label style="margin-left: 20px">部门：</label>
+            <select name="OrganizationId" id="OrganizationId">
+                <option value="0">请选择</option>
+                <option th:each="Organization:${OrganizationList}" th:value="${Organization.id}" th:text="${Organization.organizationName}">产品设计中心</option>
+            </select>
+
+            <!--员工姓名-->
+            <label style="margin-left: 50px">员工姓名：</label>
+            <input type="text" name="employeeName" id="employeeName">
+
+            <label style="margin-left: 50px">档案状态：</label>
+            <!--档案状态-->
+            <select name="fileStatusId" id="fileStatusId">
+                <option value="0">请选择</option>
+                <option th:each="FileStatus:${FileStatusList}" th:value="${FileStatus.id}" th:text="${FileStatus.fileName}">试用期</option>
+            </select>
+
+            <input type="submit" class="layui-btn layui-btn-radius layui-btn-normal" style="margin: 0px 0px 10px 500px;" value="&nbsp;&nbsp;查询&nbsp;&nbsp;">
+            <table style="margin-left: 20px;border: 1px solid #000;" class="layui-table">
+                <tr style="font-weight: bold; color: #000;">
+                    <th>部门</th>
+                    <th>档案编码</th>
+                    <th>员工姓名</th>
+                    <th>性别</th>
+                    <th>职位</th>
+                    <th>职称</th>
+
+                    <th>档案状态</th>
+
+                </tr>
+                <tr th:each="file:${FileList}">
+                    <td th:text="${file.organization.organizationName}">平台研发中心</td>
+                    <td th:text="${file.fileCode}">ddd</td>
+                    <td th:text="${file.name}">赵星</td>
+                    <td th:switch="${file.sex}">
+                      <span th:case="1">男</span>
+                      <span th:case="2">女</span>
+
+                    </td>
+                    <td th:text="${file.positionName}">UI工程师</td>
+                    <td th:switch="${file.salary}">
+                        <span th:case="'1'">高级技术员</span>
+                        <span th:case="'2'">中级技术员</span>
+                        <span th:case="'3'">低级技术员</span>
+                    </td>
+
+                    <td th:text="${file.fileStatuss.fileName}">正式员工</td>
+
+                </tr>
+
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<div class="layui-footer">
+    <!-- 底部固定区域 -->
+</div>
+</div>
+<script src="layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+    });
+
+    <!--这个cg就是span的id，初始化Date时间并转化为字符string类型,每1000毫秒，setInterval() 就会调用函数，直到被关闭。-->
+    setInterval("cg.innerHTML=new Date().toLocaleString()",1000);
+
+    // var adata =
+    // var data = JSON.stringify(adata);
+    // $.ajax({
+    //     type : "POST",                           //通过POST方式上传请求
+    //     contentType : "application/json",//上传内容格式为json结构
+    //     data : data,                                 //上传的参数
+    //     url : "/addUser",     //请求的url。与后端@Request Mapping注解中的值一致。
+    //     success : function() {		      //请求成功的回调函数
+    //         alert("添加用户成功")
+    //     },
+    //     error : function(e) {		      //请求失败的回调函数
+    //         alert("添加用户失败")
+    //     }
+    // });
+</script>
+<script type="text/javascript">
+    function showTime() {
+        nowtime = new Date();
+        year = nowtime.getFullYear();
+        month = nowtime.getMonth() + 1;
+        date = nowtime.getDate();
+        document.getElementById("mytime").innerText = year + "年" + month + "月" + date + " " + nowtime.toLocaleTimeString();
+    }
+
+    setInterval("showTime()", 1000);
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("input").attr('autocomplete', 'off');
+    });
+</script>
+
+</body>
+</html>

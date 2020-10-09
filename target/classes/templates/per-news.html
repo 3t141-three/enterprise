@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业人力资源系统</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/bisele.css">
+    <style rel="stylesheet" href="layui.js"></style>
+</head>
+<style>
+    .styles th {
+        padding-right: 35px;
+    }
+
+    .styles {
+        width: 100%;
+        float: left;
+        padding: 10px 50px;
+    }
+
+    .record th {
+        float: left;
+        padding: 20px 31.6px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    function showTime() {
+        nowtime = new Date();
+        year = nowtime.getFullYear();
+        month = nowtime.getMonth() + 1;
+        date = nowtime.getDate();
+        document.getElementById("mytime").innerText = year + "年" + month + "月" + date + " " + nowtime.toLocaleTimeString();
+    }
+
+    setInterval("showTime()", 1000);
+
+</script>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="ByIndex">
+            <div class="layui-logo">企业人力资源系统</div>
+        </a>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <!--<ul class="layui-nav layui-layout-left">-->
+        <!--<li class="layui-nav-item"><a href="">控制台</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+        <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+        <!--<li class="layui-nav-item">-->
+        <!--<a href="javascript:;">其它系统</a>-->
+        <!--<dl class="layui-nav-child">-->
+        <!--<dd><a href="">邮件管理</a></dd>-->
+        <!--<dd><a href="">消息管理</a></dd>-->
+        <!--<dd><a href="">授权管理</a></dd>-->
+        <!--</dl>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <span id="mytime"></span>
+            </li>
+            <span>
+            <li class="layui-nav-item">
+
+                     <a href="javascript:;">
+                    <img src="/images/face/26ed195281334ba4b1752394b60eb29a.gif" class="layui-nav-img">
+                    <span th:text="${loginsessions.username}"></span>
+                </a>
+
+
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="">基本资料</a></dd>-->
+                <!--<dd><a href="">安全设置</a></dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item"><a href="ByLogin">退出登录</a></li>
+                </span>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item ">
+                    <a class="" href="javascript:;">我的工作台</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="bocklog">待办列表</a></dd>
+                        <dd><a href="changePassword">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户管理</a></dd>
+                        <dd><a href="javascript:;">职位管理</a></dd>
+                        <dd><a href="javascript:;">职称管理</a></dd>
+                        <dd><a href="javascript:;">组织结构设置</a></dd>
+                        <dd><a href="javascript:;">题库管理设置</a></dd>
+                        <dd><a href="javascript:;">公共属性管理</a></dd>
+                        <dd><a href="javascript:;">薪酬项目管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">薪酬管理</a>
+                    <dl class="layui-nav-child ">
+                        <dd><a href="showListS">薪酬标准管理</a></dd>
+                        <dd><a href="queryAll;">薪酬发放管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">人事管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showList">人事档案管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">招聘管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="rec-JobManage">职位发布管理</a></dd>
+                        <dd><a href="resumeManagement">简历管理</a></dd>
+                        <dd><a href="javascript:;">面试管理</a></dd>
+                        <dd><a href="javascript:;">录用管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item ">
+                    <a class="" href="javascript:;">培训管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="showCultivates">培训计划</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">数据分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="ana-Details">职员明细表</a></dd>
+                        <dd><a href="ana-SntheticData">职员数据综合报表</a></dd>
+                        <dd><a href="ana-PostChangesStatistics">职员异动情况统计分析</a></dd>
+                        <dd><a href="ana-ReserveTalent">储备人才统计表</a></dd>
+                        <dd><a href="ana-Architecture">公司各体系结构分析</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--主体部分-->
+    <div class="layui-body" style="background-image: url('/images/face/0002.gif')">
+        <!--<div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="app-content-list">-->
+        <div id="u18" class="ax_文本" style="margin: 10px 0px 30px 70px;font-size: 20px">
+            <!-- Unnamed () -->
+            <div id="u19" class="text">
+                <p><span>人事管理</span><span>&nbsp;</span><span>&gt;&gt;</span><span>&nbsp;</span><span>人事档案管理</span>
+                </p>
+            </div>
+
+        </div>
+        <div>
+
+            <form id="u17" action="showListById" method="post">
+                <div style="display: inline;margin: 0px 50px 0px 70px;">
+                    <span id="u20" style="font-size: 20px">档案编码：</span>
+                    <input id="u21" name="fileCode">
+                </div>
+                <div style="display: inline;margin: 0px 50px 0px 70px;">
+                    <span id="u20" style="font-size: 20px">姓名：</span>
+                    <input id="u21" name="name">
+                </div>
+
+                <button type="submit" class="layui-btn layui-btn-radius">查询</button>
+                <a href="/inserts" style="padding-left: 4rem">
+                    <button type="button" class="layui-btn layui-btn-radius">档案登记</button>
+                </a>
+            </form>
+
+
+        </div>
+
+
+        <!--<a th:href="@{'/showList4'}"> <button type="button" style=" width: 6rem;" class="layui-btn layui-btn-radius" >复  核</button></a>-->
+        <!--<a id="u55"> <button type="button" style=" width: 6rem;" class="layui-btn layui-btn-radius" >变  更</button></a>-->
+
+        <!--</div>-->
+        <table class="layui-table" style="margin: 80px 0">
+            <thead>
+            <tr>
+                <!--<th style="padding-right: 2rem">请选择</th>-->
+                <th style="padding-right: 4rem">档案编码</th>
+                <th style="padding-right: 3rem">姓名</th>
+                <th style="padding-right: 4rem">性别</th>
+                <th style="padding-right: 4rem">所属部门</th>
+                <th style="padding-right: 6rem">职位</th>
+                <th style="padding-right: 5.5rem">职称</th>
+                <!--<th style="padding-right: 5.5rem">建党日期</th>-->
+
+                <th style="padding-right: 5.5rem">操作</th>
+            </tr>
+            </thead>
+            <tr th:each="stu:${fileList}">
+                <th th:text="${stu.id}" hidden id="u44"></th>
+                <!--<th><input type="radio" id="isallday" value="1" th:value="${stu.id}"></th>-->
+                <th th:text="${stu.fileCode}" style="padding-left: 67px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10000</th>
+                <th th:text="${stu.name}">张飞</th>
+                <th th:switch="${stu.sex}">
+                    <span th:case="1">男</span>
+                    <span th:case="2">女</span>
+                </th>
+
+
+                <td th:switch="${stu.organizationId}">
+                    <span th:case="'1'">产品设计中心</span>
+                    <span th:case="'2'">质量管理部</span>
+                    <span th:case="'3'">产品管理部</span>
+
+                </td>
+                <th th:text="${stu.positionName}"></th>
+                <th th:switch="${stu.salary}">
+                    <span th:case="'1'">高级技术员</span>
+                    <span th:case="'2'">中级技术员</span>
+                    <span th:case="'3'">低级技术员</span>
+                </th>
+                <!--<th th:text="${#dates.format(stu.build,'yyyy-MM-dd ')}">张飞</th>-->
+
+                <th>
+                    <a th:href="@{showList2(id=${stu.id})}" class="layui-btn layui-btn-xs mingx" lay-event="edit">详情</a>
+                    <a th:href="@{deleteFile(id=${stu.id})}" class="layui-btn layui-btn-danger layui-btn-xs delete"
+                       lay-event="del">删除</a>
+                </th>
+
+                <!--<div id="mb_con"-->
+                <!--style="z-index: 999999;display: none ;width: 400px; position: fixed; background-color: white; border-radius: 15px; top: 330.5px; left: 654px;">-->
+                <!--<span id="mb_tit" style="display: block; font-size: 14px; color: rgb(68, 68, 68); padding: 10px 15px; background-color: rgb(221, 221, 221);-->
+                <!--border-radius: 15px 15px 0px 0px; border-bottom: 3px solid rgb(0, 155, 254); font-weight: bold;">消息</span>-->
+                <!--<a id="mb_ico"-->
+                <!--style="display: block; position: absolute; right: 10px; top: 9px; border: 1px solid gray; width: 18px; height: 18px; text-align: center; line-height: 16px; cursor: pointer; border-radius: 12px; font-family: 微软雅黑;">x</a>-->
+                <!--<div id="mb_msg"-->
+                <!--style="padding: 20px; line-height: 20px; border-bottom: 1px dashed rgb(221, 221, 221); font-size: 13px;">-->
+                <!--此操作将标记该数据为“已删除”状态-->
+                <!--</div>-->
+                <!--<div id="mb_btnbox" style="margin: 15px 0px 10px; text-align: center;">-->
+                <!---->
+                <!--</div>-->
+                <!--</div>-->
+            </tr>
+        </table>
+
+    </div>
+
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+
+<script src="layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+</script>
+<script src="/static/build/layui.js"></script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , calendar: true
+        });
+    });
+</script>
+<script src="jquery-1.10.2.min.js"></script>
+<script>
+    $(".delete").click(function () {
+        $("#mb_con").show();
+    })
+    $(".mingx").click(function () {
+        $("#mb_con").hide();
+    })
+    $("#mb_ico").click(function () {
+        $("#mb_con").hide();
+    })
+
+
+    $("#u55").click(function () {
+        var ti = $('input:radio:checked').val();
+        if (ti == 1) {
+            $("#u55").attr("th:href", "@{showList3(id=1}")
+        } else if (ti == 2) {
+            $("#u55").attr("th:href", "@{showList3(id=2}")
+        } else if (ti == 3) {
+            $("#u55").attr("th:href", "@{showList3(id=3}")
+        } else if (ti == 4) {
+            $("#u55").attr("th:href", "@{showList3(id=4}")
+        } else if (ti == 5) {
+            $("#u55").attr("th:href", "@{showList3(id=5}")
+        }
+
+
+    })
+
+
+</script>
+</body>
+</html>
